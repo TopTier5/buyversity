@@ -1,6 +1,24 @@
 import { ShoppingCart } from "lucide-react";
+import { useNavigate } from "react-router";
+
+
+
 
 export default function Navbar() {
+
+     const navigate = useNavigate();
+
+  const handleCategoryChange = (e) => {
+    const selected = e.target.value;
+    if (selected !== "") {
+      navigate(`/category/${selected.toLowerCase().replace(/\s+/g, '-')}`);
+      e.target.value = ""; 
+    }
+
+  };
+
+
+
     return (
         <nav className="flex items-center justify-between py-4 px-6 bg-white shadow-sm">
             <div className="flex items-center gap-2 ml-15">
@@ -12,14 +30,20 @@ export default function Navbar() {
             <div className="flex items-center gap-4">
                 <button className="text-purple-700 hover:text-black text-sm">Home</button>
                 <button className="text-purple-700 hover:text-black text-sm">About</button>
-                <select className="text-purple-700 text-sm">
-                    <option disabled selected hidden>All Categories</option>
-                    <option>Electronics</option>
-                    <option>Clothing & Accessories</option>
-                    <option>Kitchen & Cooking</option>
-                    <option>Books</option>
-                    <option>Others</option>
-                </select>
+                <div className="relative">
+      <select
+        defaultValue=""
+        onChange={handleCategoryChange}
+        className="text-purple-700 text-sm appearance-none"
+      >
+        <option value="" disabled hidden>All Categories</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Clothing & Accessories">Clothing & Accessories</option>
+        <option value="Kitchen & Cooking">Kitchen & Cooking</option>
+        <option value="Books">Books</option>
+        <option value="Others">Others</option>
+      </select>
+      </div>
 
 
                 <button className="flex items-center gap-1 border border-purple-300 px-4 py-2 rounded-md text-purple-700 hover:text-black cursor-pointer">
