@@ -1,5 +1,7 @@
 export default function Navbar() {
     return(
-        <nav></nav>
+        <nav>
+            <h1>BuyVersity</h1>
+        </nav>
     );
 }

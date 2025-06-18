@@ -1,6 +1,14 @@
+import Navbar from "../components/Navbar";
+
 
 export default function Home() {
     return (
-        <h1 className="text-center">welcome to home</h1>
+        <>
+        
+        <Navbar />
+        
+        
+        </>
+        
     );
 }
