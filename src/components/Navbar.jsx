@@ -20,21 +20,21 @@ export default function Navbar() {
 
 
     return (
-        <nav className="flex items-center justify-between py-4 px-6 bg-white shadow-sm">
+        <nav className="flex items-center justify-between py-3 px-6 bg-white shadow-sm">
             <div className="flex items-center gap-2 ml-15">
-                <div className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-2 py-1 rounded-md font-bold text-xl cursor-pointer">
+                <div className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-3 py-1 rounded-md font-bold text-xl cursor-pointer">
                     B</div>
                 <span className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
                     BuyVersity</span>
             </div>
             <div className="flex items-center gap-4">
-                <button className="text-purple-700 hover:text-black text-sm">Home</button>
-                <button className="text-purple-700 hover:text-black text-sm">About</button>
+                <button className="text-purple-700 hover:text-black cursor-pointer text-sm">Home</button>
+                <button className="text-purple-700 hover:text-black cursor-pointer text-sm">About</button>
                 <div className="relative">
       <select
         defaultValue=""
         onChange={handleCategoryChange}
-        className="text-purple-700 text-sm appearance-none"
+        className="text-purple-700 text-sm hover:text-black cursor-pointer appearance-none"
       >
         <option value="" disabled hidden>All Categories</option>
         <option value="Electronics">Electronics</option>

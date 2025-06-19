@@ -87,7 +87,7 @@ export default function Hero() {
                         prev === 0 ? slides.length - 1 : prev - 1
                     )
                 }
-                className="absolute z-30 left-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full text-purple-700 hover:bg-purple-100"
+                className="absolute z-30 left-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full cursor-pointer text-purple-700 hover:bg-purple-100"
             >
                 <ChevronLeft />
             </button>
@@ -98,7 +98,7 @@ export default function Hero() {
                         prev === slides.length - 1 ? 0 : prev + 1
                     )
                 }
-                className="absolute z-30 right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full text-purple-700 hover:bg-purple-100"
+                className="absolute z-30 right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full cursor-pointer text-purple-700 hover:bg-purple-100"
             >
                 <ChevronRight />
             </button>
