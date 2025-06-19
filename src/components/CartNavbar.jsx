@@ -1,6 +1,6 @@
 export default function CartNavbar() {
     return (
-        <nav className="flex items-center justify-between py-3 px-6 bg-white shadow-sm">
+        <nav className="flex items-center justify-between py-3 px-6 bg-white shadow-xl">
             <div className="flex items-center gap-2 ml-15">
                 <div className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-3 py-1 rounded-md 
                 font-bold text-xl cursor-pointer">
