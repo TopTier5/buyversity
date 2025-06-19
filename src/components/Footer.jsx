@@ -57,15 +57,12 @@ export default function Footer() {
                                 <Phone size={17} className="text-purple-300"/>
                                 <span className="text-purple-300">+233 30 2093 760</span>
                             </div>
+                            <div className="mt-8">
+                                <p className="text-purple-300">©2025 BuyVersity. All Rights Reserved.</p>
+                            </div>
                         </div>
                     </div>
-                    <div className="">
-                        <div className="">
-                            <p></p>
-                        </div>
-                    </div>
-                    <div>
-                    </div>
+                    
                 </div>
             </div>
 
