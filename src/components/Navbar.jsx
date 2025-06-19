@@ -1,7 +1,4 @@
-import { ShoppingCart } from "lucide-react";
 import { useNavigate } from "react-router";
-
-
 
 
 export default function Navbar() {
@@ -46,10 +43,10 @@ export default function Navbar() {
       </div>
 
 
-                <button className="flex items-center gap-1 border border-purple-300 px-4 py-2 rounded-md text-purple-700 hover:text-black cursor-pointer">
-                    <ShoppingCart size={16} /></button>
-                <button className="border border-purple-300 px-5 py-2 rounded-md text-purple-700 hover:text-black cursor-pointer">Login</button>
-                <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-5 py-2 rounded-md font-semibold hover:text-black cursor-pointer">
+                <button className="flex items-center gap-1 border border-purple-300 px-3 py-1 rounded-md text-purple-700 hover:text-black cursor-pointer">
+                    Become A Vendor</button>
+                <button className="border border-purple-300 px-3 py-1 rounded-md text-purple-700 hover:text-black cursor-pointer">Login</button>
+                <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-3 py-1 rounded-md font-semibold hover:text-black cursor-pointer">
                     Sign Up</button>
 
             </div>
