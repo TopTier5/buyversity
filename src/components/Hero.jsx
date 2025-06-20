@@ -48,7 +48,7 @@ export default function Hero() {
 
     return (
 
-        <div className="relative w-full h-[500px] overflow-hidden">
+        <div className="relative w-full h-[500px] overflow-hidden bg-[#f1f6ff]">
 
             {slides.map((slide, index) => (
                 <img
