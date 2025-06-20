@@ -21,7 +21,7 @@ export default function VendorForm() {
             <div className="mt-6 rounded-md min-h-screen w-full max-w-4xl bg-white px-6 py-8">
                 <div>
                     <h1 className="w-full text-center text-2xl sm:text-3xl lg:text-3xl font-bold text-white bg-gradient-to-r from-purple-600 to-blue-600 py-6 rounded-t-md">
-                        Post Your Ad
+                        Post New Ad
                     </h1>
                 </div>
 
@@ -49,8 +49,8 @@ export default function VendorForm() {
                                 </select>
                             </div>
                             <div className="flex-1/2 ml-5">
-                                <label htmlFor="Price">₵Price<span className="text-red-700">*</span></label>
-                                <input type="number" name="price" id="price" className="border border-gray-400 rounded-md w-[90%] h-9
+                                <label htmlFor="Price">Price (₵)<span className="text-red-700">*</span></label>
+                                <input type="number" name="price" id="price" placeholder="0.00" className="border border-gray-400 rounded-md w-[90%] h-9
                             mt-2 " required />
                             </div>
                         </div >
@@ -107,7 +107,7 @@ export default function VendorForm() {
                                 />
                             </div>
                             <div className="mt-4">
-                                <label htmlFor="Pickup Location">Pickup Location<span className="text-red-700">*</span></label>
+                                <label htmlFor="Location"> Location<span className="text-red-700">*</span></label>
                                 <input type="text" id="location" placeholder="Enter your location" className="border border-gray-400 rounded-md w-[95%] h-9
                             mt-2 " required />
                             </div>
