@@ -103,7 +103,7 @@ export default function VendorForm() {
                                     value={customUniversity}
                                     onChange={(e) => setCustomUniversity(e.target.value)}
                                     className="border border-gray-400 rounded-md w-[95%] h-9 mt-2"
-                                    required
+                                    
                                 />
                             </div>
                             <div className="mt-4">
