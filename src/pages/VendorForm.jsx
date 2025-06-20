@@ -1,10 +1,20 @@
 import { useState } from "react";
 
-   
+
 export default function VendorForm() {
 
-    
+    const [university, setUniversity] = useState('');
+    const [customUniversity, setCustomUniversity] = useState('');
+
+
+
+
     return (
+
+
+      <>
+
+    
 
         <section className="flex flex-col items-center min-h-screen bg-purple-200" >
 
@@ -64,9 +74,11 @@ export default function VendorForm() {
                             </div>
                         </div>
                         <div className=" mt-4">
-                            <div><label htmlFor="University/Tertiary Institution" >University/Tertiary Institution</label>
-                                <select name="university/tertiaryinstituton" id="university/tertiayinstitution" className="border border-gray-400 rounded-md w-[95%] h-9 mt-2" required>
-                                <option selected disabled>Select a Category
+                            <div><label htmlFor="University/Tertiary Institution" >University/Tertiary Institution<span className="text-red-700">*</span></label>
+                                <select name="university/tertiaryinstituton" id="university/tertiayinstitution" className="border border-gray-400 rounded-md w-[95%] h-9 mt-2" required
+                                    value={university}
+                                    onChange={(e) => setUniversity(e.target.value)}>
+                                    <option selected disabled>Select a Category
                                     </option>
                                     <option value="university of ghana,legon">University of Ghana, Legon</option>
                                     <option value="university of cape coast">University of Cape Coast</option>
@@ -81,6 +93,27 @@ export default function VendorForm() {
                                     <option value="other">Other</option>
                                 </select>
                             </div>
+                            <div className="mt-4">
+                                <label htmlFor="customUniversity">Enter Your University If not listed above <span className="text-red-700">*</span></label>
+                                <input
+                                    type="text"
+                                    name="customUniversity"
+                                    id="customUniversity"
+                                    placeholder="Enter your university name"
+                                    value={customUniversity}
+                                    onChange={(e) => setCustomUniversity(e.target.value)}
+                                    className="border border-gray-400 rounded-md w-[95%] h-9 mt-2"
+                                    required
+                                />
+                            </div>
+                            <div className="mt-4">
+                                <label htmlFor="Pickup Location">Pickup Location<span className="text-red-700">*</span></label>
+                                <input type="text" id="location" placeholder="Enter your location" className="border border-gray-400 rounded-md w-[95%] h-9
+                            mt-2 " required />
+                            </div>
+                            <div className="mt-10 text-center">
+                                <button className="text-xl font-bold text-white bg-gradient-to-r from-purple-600 to-blue-600 border border-none rounded-md w-[95%] h-10 mr-9 cursor-pointer hover:shadow-2xl shadow-blue-700">Submit</button>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -88,5 +121,6 @@ export default function VendorForm() {
             </div>
 
         </section>
+        </>
     );
 }
