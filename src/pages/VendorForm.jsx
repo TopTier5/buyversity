@@ -1,4 +1,5 @@
 import { useState } from "react";
+import VendorNav from "../components/VendorNav";
 
 
 export default function VendorForm() {
@@ -13,9 +14,7 @@ export default function VendorForm() {
 
 
       <>
-
-
-    
+        <VendorNav />
 
         <section className="flex flex-col items-center min-h-screen bg-purple-200" >
 
