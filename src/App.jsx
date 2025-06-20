@@ -3,7 +3,6 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import ViewProducts from "./pages/ViewProducts";
 import EditForm from "./pages/EditForm";
-import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import ProductDetail from "./pages/ProductDetail";
 import Register from "./pages/Register";
@@ -19,7 +18,6 @@ const eventHiveRouter = createBrowserRouter([
   { path: '/about', element: <About /> },
   { path: '/view-products', element: <ViewProducts /> },
   { path: '/edit-form', element: <EditForm /> },
-  { path: '/cart', element: <Cart /> },
   { path: '/login', element: <Login /> },
   { path: '/product-detail', element: <ProductDetail /> },
   { path: '/register', element: <Register /> },

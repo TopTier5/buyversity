@@ -14,6 +14,7 @@ export default function VendorForm() {
 
       <>
 
+
     
 
         <section className="flex flex-col items-center min-h-screen bg-purple-200" >
