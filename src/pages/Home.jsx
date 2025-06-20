@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
-import ProductCard from "../components/ProductCard";
+import ProductGrid from "../components/ProductGrid";
 
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
 
         <Navbar />
         <Hero />
-        <ProductCard />
+        <ProductGrid />
         
       
         
