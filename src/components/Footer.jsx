@@ -5,7 +5,7 @@ import { Phone } from "lucide-react";
 export default function Footer() {
     return (
 
-        <footer className="bg-gradient-to-r from-[#561D87] via-[#22378A] to-[#2F2F82] text-white py-12 px-6 mt-[800px] h-[45vh]">
+        <footer className="bg-gradient-to-r from-[#561D87] via-[#22378A] to-[#2F2F82] text-white py-12 px-6 mt-[800px] h-[55vh]">
             <div className="max-w-7xl mx-auto">
             
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
@@ -57,13 +57,14 @@ export default function Footer() {
                                 <Phone size={17} className="text-purple-300"/>
                                 <span className="text-purple-300">+233 30 2093 760</span>
                             </div>
-                            <div className="mt-8">
-                                <p className="text-purple-300">©2025 BuyVersity. All Rights Reserved.</p>
-                            </div>
                         </div>
                     </div>
                     
                 </div>
+            </div>
+            <hr className="border-t border-purple-400 opacity-50 my-4" />
+            <div className="text-center text-purple-300">
+            © 2025 BuyVersity. All Rights Reserved.
             </div>
 
         </footer>
