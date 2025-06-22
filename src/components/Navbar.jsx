@@ -36,7 +36,7 @@ export default function Navbar() {
         <option value="" disabled hidden>All Categories</option>
         <option value="Electronics">Electronics</option>
         <option value="Clothing & Accessories">Clothing & Accessories</option>
-        <option value="Kitchen & Cooking">Kitchen & Cooking</option>
+        <option value="Kitchen & Cooking">Hostel Essentials</option>
         <option value="Books">Books</option>
         <option value="Others">Others</option>
       </select>

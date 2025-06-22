@@ -18,8 +18,8 @@ const slides = [
     },
     {
         image: hero3,
-        title: "Kitchen & Cooking",
-        subtitle: "Essential tools to enhance your cooking experience",
+        title: "Hostel Essentials",
+        subtitle: "Everything you need for comfortable campus living",
     },
     {
         image: hero4,

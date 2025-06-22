@@ -35,7 +35,7 @@ export default function ProductGrid() {
             price: " 500.00",
             vendor: "Yasmine Appiah",
             condition: "New",
-            category: "Kitchen & Cooking"
+            category: "Hostel Essentials"
         },
       
          {
@@ -72,7 +72,7 @@ export default function ProductGrid() {
         <section className="py-10 px-5 w-[90%] mx-auto">
 
             <div className="flex flex-wrap gap-3 mb-8">
-                {["All Categories", "Electronics", "Clothing & Accessories", "Kitchen & Cooking", "Books", "Other"].map((category, index) => (
+                {["All Categories", "Electronics", "Clothing & Accessories", "Hostel Essentials", "Books", "Other"].map((category, index) => (
                     <button
                         key={index}
                         className="rounded-full border hover:bg-purple-200 font-bold bg-white text-purple-600 text-xs px-3 py-2"
