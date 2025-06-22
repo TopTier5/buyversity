@@ -6,7 +6,7 @@ import { User } from "lucide-react";
 
 export default function Login() {
   return (
-    <div className="bg-purple-200 h-screen pt-10 overflow-hidden">
+    <div className="bg-purple-200 h-screen py-8 overflow-hidden">
         <div className="flex flex-row w-9/12 bg-white rounded-md mx-auto overflow-hidden">
 
           <div className="w-1/2 p-8 bg-white">
@@ -40,7 +40,7 @@ export default function Login() {
             className="flex flex-col justify-center place-items-center w-1/2 bg-cover bg-center bg-no-repeat text-white p-8"
             style={{ backgroundImage: `url(${registaimage})` }}
           >
-            <h1 className="text-3xl font-bold mb-5">Hello Fam</h1>
+            <h1 className="text-4xl font-bold mb-5  z-10 mt-9">Welcome To BuyVersity</h1>
             
             <Link to={"/register"} type="submit" className="block border border-purple-600 rounded-md text-white text-md py-1 px-2 w-20 h-8 bg-purple-600 whitespace-nowrap text-center">Sign Up</Link>
           </div>

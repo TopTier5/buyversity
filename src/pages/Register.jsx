@@ -5,23 +5,24 @@ import { User } from "lucide-react";
 
 export default function Login() {
   return (
-    <div className="bg-purple-300 min-h-screen py-40">
+    <div className="bg-purple-300 min-h-screen py-4">
       <div className="container mx-auto">
         <div className="flex flex-row w-9/12 bg-white rounded-md mx-auto overflow-hidden">
             <div
                       className="flex flex-col justify-center place-items-center w-1/2 bg-cover bg-center bg-no-repeat text-white p-8"
                       style={{ backgroundImage: `url(${registaimage})` }}
                     >
-                      <h1 className="text-3xl font-bold mb-5">Hello Fam</h1>
+                      <h1 className="text-4xl font-bold z-10 mb-3">Welcome To BuyVersity</h1>
                       
-                      <Link to={"/login"} type="submit" className="block border border-purple-600 rounded-md text-white text-md py-1 px-2 w-20 h-8 bg-purple-600 whitespace-nowrap text-center">Sign Up</Link>
+                      <Link to={"/login"} type="submit" className="block border border-purple-600 rounded-md text-white text-md py-1 px-2 w-20 h-8 bg-purple-600 whitespace-nowrap text-center mb-50">Sign In</Link>
                     </div>
+                
 
           <div className="w-1/2 p-8 bg-white">
             {/* Registration form goes here */}
                    
                     <form action="">
-                        <h1 className="text-4xl font-bold text-purple-600 mb-5 text-center ">Registration Form </h1>
+                        <h1 className="text-4xl font-bold te-purple-600 mb-5 text-center ">Registration Form </h1>
                         <h1 className="text-xl font-bold text-gray-700 mb-5 whitespace-nowrap text-center">Register now to advertise your products. </h1>
                         <div>
                         <label className="block text-md mb-2 text-black font-semibold">What's your name? </label>
