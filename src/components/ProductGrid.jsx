@@ -5,7 +5,8 @@ import camera from "../assets/images/polaroid.jpg"
 import nike from "../assets/images/nike1.jpg"
 import cooker from "../assets/images/ricecooker1.jpg"
 import jacket from "../assets/images/jeansjacket.jpg"
-
+import book1 from "../assets/images/book1.jpeg"
+import iphonexr from "../assets/images/iphonexr.jpg"
 
 
 
@@ -63,6 +64,36 @@ export default function ProductGrid() {
             condition: "New",
             category: "Electronics"
         },
+
+        {
+            image: book1,
+            title: "Poor Economics",
+            price: " 85.00",
+            vendor: "Justice Agyemang",
+            condition: "Used",
+            category: "Books"
+        },
+        {
+            image: iphonexr,
+            title: "Iphone XR",
+            price: "2,000.00",
+            vendor: "Darius Tech",
+            condition: "New",
+            category: "Electronics"
+        },
+
+
+
+
+
+
+
+
+
+
+
+
+
     ]
 
 

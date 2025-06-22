@@ -26,9 +26,10 @@ export default function ProductCard({ image, title, price, vendor, condition, ca
                 <p>
                     Sold by: <span className="font-medium">{vendor}</span>
                 </p>
-                <button className="text-purple-600 hover:text-purple-800 transition-colors duration-200 cursor-pointer">
-                    <Eye size={18} />
+                <button className="text-purple-600 hover:text-purple-800 transition-colors duration-200 cursor-pointer flex flex-row text-xs gap-1">
+                    <Eye size={15} />View Details
                 </button>
+               
             </div>
         </div>
 
