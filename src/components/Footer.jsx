@@ -6,7 +6,7 @@ import { Link } from "react-router";
 export default function Footer() {
     return (
 
-        <footer className="bg-gradient-to-r from-[#561D87] via-[#22378A] to-[#2F2F82] text-white py-12 px-6">
+        <footer className="bg-gradient-to-r from-[#561D87] via-[#22378A] to-[#2F2F82] text-white py-12 px-6 mt-15">
   <div className="max-w-7xl mx-auto">
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">

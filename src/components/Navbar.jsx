@@ -4,16 +4,16 @@ import { Link } from "react-router";
 
 export default function Navbar() {
 
-     const navigate = useNavigate();
+  //    const navigate = useNavigate();
 
-  const handleCategoryChange = (e) => {
-    const selected = e.target.value;
-    if (selected !== "") {
-      navigate(`/category/${selected.toLowerCase().replace(/\s+/g, '-')}`);
-      e.target.value = ""; 
-    }
+  // const handleCategoryChange = (e) => {
+  //   const selected = e.target.value;
+  //   if (selected !== "") {
+  //     navigate(`/category/${selected.toLowerCase().replace(/\s+/g, '-')}`);
+  //     e.target.value = ""; 
+  //   }
 
-  };
+  // };
 
 
 
@@ -39,7 +39,7 @@ export default function Navbar() {
       About</Link>
          </button>
 
-      <div className="relative">
+      {/* <div className="relative">
         <select
           defaultValue=""
           onChange={handleCategoryChange}
@@ -54,7 +54,7 @@ export default function Navbar() {
           <option value="Books">Books</option>
           <option value="Others">Others</option>
         </select>
-      </div>
+      </div> */}
 
       <button className="flex items-center gap-1 border border-purple-300 px-3 py-1 rounded-md text-purple-700 hover:text-black text-sm">
         <Link to="/register">Become A Vendor</Link>
@@ -77,7 +77,7 @@ export default function Navbar() {
         <button className="text-purple-700 hover:text-black text-sm text-left">
           About</button>
 
-        <select
+        {/* <select
           defaultValue=""
           onChange={handleCategoryChange}
           className="text-purple-700 text-sm hover:text-black appearance-none"
@@ -90,7 +90,7 @@ export default function Navbar() {
           <option value="Kitchen & Cooking">Hostel Essentials</option>
           <option value="Books">Books</option>
           <option value="Others">Others</option>
-        </select>
+        </select> */}
 
         <button className="flex items-center gap-1 border border-purple-300 px-3 py-1 rounded-md text-purple-700 hover:text-black text-sm">
            <Link to="/register">Become A Vendor</Link>
