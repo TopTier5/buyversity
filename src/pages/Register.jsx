@@ -5,49 +5,61 @@ import { User } from "lucide-react";
 
 export default function Login() {
   return (
-    <div className="bg-purple-300 min-h-screen py-4">
-      <div className="container mx-auto">
-        <div className="flex flex-row w-9/12 bg-white rounded-md mx-auto overflow-hidden">
+    <div className="bg-purple-300 min-h-screen md:py-4">
+
+<div className="flex flex-col lg:flex-row lg:w-9/12 w-full bg-white rounded-md mx-auto overflow-hidden">
             <div
-                      className="flex flex-col justify-center place-items-center w-1/2 bg-cover bg-center bg-no-repeat text-white p-8"
+                      className="flex flex-col justify-center place-items-center lg:w-1/2 w-full bg-cover bg-center bg-no-repeat text-white p-8 order-1 lg:order-none"
                       style={{ backgroundImage: `url(${registaimage})` }}
                     >
-                      <h1 className="text-4xl font-bold z-10 mb-3">Welcome To BuyVersity</h1>
+                      <h1 className="lg:text-4xl text-3xl font-bold z-10 mb-5 lg:mb-3 whitespace-nowrap">Welcome To BuyVersity</h1>
                       
                       <Link to={"/login"} type="submit" className="block border border-purple-600 rounded-md text-white text-md py-1 px-2 w-20 h-8 bg-purple-600 whitespace-nowrap text-center mb-50">Sign In</Link>
                     </div>
                 
 
-          <div className="w-1/2 p-8 bg-white">
-            {/* Registration form goes here */}
+          <div className="lg:w-1/2 w-full p-8 sm:p-4 bg-white order-2 lg:order-none flex flex-col items-center">
+            {/* Registration form */}
                    
-                    <form action="">
-                        <h1 className="text-4xl font-bold text-purple-600 mb-5 text-center ">Registration Form </h1>
-                        <h1 className="text-xl font-bold text-purple-400 mb-5 whitespace-nowrap text-center">Register now to advertise your products. </h1>
-                        <div>
-                        <label className="block text-md mb-2 text-black font-semibold">What's your name? </label>
-                        <input type="text" name="name" placeholder="First Name" required className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2 mb-7" />
-                         <input type="text" name="name" placeholder="Last Name" required className="border border-gray-500 rounded-md  w-full text-gray-700 text-md px-4 py-2 mb-7" />
+                    <form className="w-full max-w-md">
+                        <h1 className="text-4xl font-bold text-purple-600 mb-5 text-center">Registration Form </h1>
+                        <h1 className="lg:text-xl text-lg font-bold text-purple-400 mb-5 text-center">Register now to advertise your products. </h1>
+                        
+                        <div className="flex flex-col mb-7">
+                            <label className="block text-md mb-2 text-black font-semibold text-left">First Name </label>
+                            <input type="text" name="name" placeholder="First Name" required className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2 mb-3" />
+                            <label className="block text-md mb-2 mt-4 text-black font-semibold text-left">Last Name </label>
+                            <input type="text" name="name" placeholder="Last Name" required className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2" />
                         </div>
 
-                        <label className="blockn text-md text-black font-semibold mb-2">What's your emai?</label>
-                        <input type="email" name="name" placeholder="kobiahchristiana@gmail.com" required className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2 mb-7 mt-2" />
+                        <div className="flex flex-col mb-7">
+                            <label className="block text-md text-black font-semibold mb-2 text-left">Email</label>
+                            <input type="email" name="name" placeholder="kobiahchristiana@gmail.com" required className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2" />
+                        </div>
 
-                        <label className="block text-md mb-2 text-black font-semibold">What's your password?</label>
-                        <input type="password" name="password" required minlength="8" maxlength="16" pattern="^[a-zA-Z0-9_]*${16}" placeholder=" Your password" className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2 mb-7" />
-                        <input type="password" name="password" required minlength="8" maxlength="16" pattern="^[a-zA-Z0-9_]*${16}" placeholder="Confirm password" className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2 mb-7" />
+                        <div className="flex flex-col mb-7">
+                            <label className="block text-md mb-2 text-black font-semibold text-left">Password</label>
+                            <input type="password" name="password" required minlength="8" maxlength="16" pattern="^[a-zA-Z0-9_]*${16}" placeholder=" Your password" className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2 mb-3" />
+                            <label className="block text-md mt-4 mb-2 text-black font-semibold text-left">Confirm Password </label>
+                            <input type="password" name="password" required minlength="8" maxlength="16" pattern="^[a-zA-Z0-9_]*${16}" placeholder="Confirm password" className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2" />
+                        </div>
 
-                        <label className="blockn text-md text-black font-semibold">What's your phone number</label>
-                        <input type="tel" name="phone" placeholder="+233208242532" minLength={10} maxLength={12} required className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2 mb-7 mt-2" />
+                        <div className="flex flex-col mb-7">
+                            <label className="block text-md text-black font-semibold text-left mb-2">Phone</label>
+                            <input type="tel" name="phone" placeholder="+233208242532" minLength={10} maxLength={12} required className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2" />
+                        </div>
 
-                         <label className="block text-md mb-2 text-black font-semibold">What's your institution? </label>
-                        <input type="text" name="institution" placeholder="Name of institution" required className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2 mb-7" />
+                        <div className="flex flex-col mb-7">
+                            <label className="block text-md mb-2 text-black font-semibold text-left">Institution </label>
+                            <input type="text" name="institution" placeholder="Name of institution" required className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2" />
+                        </div>
 
-                        <button type="submit" className="border border-purple-600 bg-purple-600 rounded-md w-full text-white text-md px-4 py-2 mb-7 mt-5" >Submit</button>
-                        </form>
+                        <div className="flex flex-col items-center">
+                            <button type="submit" className="border border-purple-600 bg-purple-600 rounded-md w-full text-white text-md px-4 py-2 mt-5" >Submit</button>
+                        </div>
+                    </form>
           </div>
         </div>
-      </div>
     </div>
   );
 }
