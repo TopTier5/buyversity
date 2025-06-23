@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, Filter } from "lucide-react";
+import { ChevronLeft, ChevronRight, Search } from "lucide-react";
 import hero1 from "../assets/images/hero1.jpg";
 import hero2 from "../assets/images/hero2.jpg";
 import hero3 from "../assets/images/hero3.jpg";
@@ -67,8 +67,8 @@ export default function Hero() {
             placeholder="Search for anything..."
             className="flex-grow px-3 py-1 rounded-md focus:outline-none text-black"
           />
-          <button className="bg-purple-600 hover:bg-purple-700 text-white flex items-center gap-1 px-4 py-2 rounded-md text-sm">
-            <Filter size={16} /> Filter
+          <button className="bg-purple-600 hover:bg-purple-700 text-white flex items-center gap-1 px-4 py-2 rounded-md text-sm cursor-pointer">
+            <Search size={16} />
           </button>
         </div>
       </div>
