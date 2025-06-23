@@ -1,3 +1,6 @@
+import { Link } from "react-router";
+
+
 export default function VendorNav() {
     return (
         <nav className="flex items-center justify-between py-3 px-6 bg-white">
@@ -10,10 +13,11 @@ export default function VendorNav() {
                    
             </div>
             <div className="mr-10">
-                <button className="border border-[#D8B4FE] bg-gradient-to-r from-purple-600 to-blue-600
+                <Link to ="/"  className="border border-[#D8B4FE] bg-gradient-to-r from-purple-600 to-blue-600
                  text-white  pt-2 pb-2 pl-3 pr-3
-                text-sm font-semibold rounded-md cursor-pointer hover:shadow-2xl shadow-blue-700 ">Back to Home</button>
+                text-sm font-semibold rounded-md cursor-pointer hover:shadow-2xl shadow-blue-700 ">Back to Home</ Link>
             </div>
+
            
         </nav>
         
