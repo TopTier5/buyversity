@@ -22,8 +22,8 @@ export default function Login() {
             {/* Registration form goes here */}
                    
                     <form action="">
-                        <h1 className="text-4xl font-bold te-purple-600 mb-5 text-center ">Registration Form </h1>
-                        <h1 className="text-xl font-bold text-gray-700 mb-5 whitespace-nowrap text-center">Register now to advertise your products. </h1>
+                        <h1 className="text-4xl font-bold text-purple-600 mb-5 text-center ">Registration Form </h1>
+                        <h1 className="text-xl font-bold text-purple-400 mb-5 whitespace-nowrap text-center">Register now to advertise your products. </h1>
                         <div>
                         <label className="block text-md mb-2 text-black font-semibold">What's your name? </label>
                         <input type="text" name="name" placeholder="First Name" required className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2 mb-7" />
