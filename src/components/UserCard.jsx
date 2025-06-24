@@ -101,9 +101,6 @@ export default function UserCard() {
                     </div>
 
                 </div>
-
-                <div className="border rounded-md w-[20%]"></div>
-
             </div>
 
         </section >
