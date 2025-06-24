@@ -8,7 +8,8 @@ import Register from "./pages/Register";
 import VendorForm from "./pages/VendorForm";
 import NotFound from "./pages/NotFound";
 import VendorDashboard from "./pages/VendorDashboard";
-
+import UserPage from "./pages/UserPage";
+import UserProfile from "./pages/UserProfile";
 
 
 
@@ -21,7 +22,9 @@ const eventHiveRouter = createBrowserRouter([
   { path: '/register', element: <Register /> },
   { path: '/vendor-form', element: <VendorForm /> },
   { path: '/*', element: <NotFound /> },
-  { path: '/vendor-dashboard', element: <VendorDashboard />}
+  { path: '/vendor-dashboard', element: <VendorDashboard />},
+  { path: '/user-page', element: <UserPage />},
+    { path: '/user-profile', element: <UserProfile />},
 ]);
 
 function App() {
