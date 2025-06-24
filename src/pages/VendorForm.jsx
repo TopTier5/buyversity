@@ -8,6 +8,10 @@ export default function VendorForm() {
     const [customUniversity, setCustomUniversity] = useState('');
 
 
+    const today = new Date().toISOString().split("T")[0];
+
+
+
 
 
     return (
@@ -118,7 +122,7 @@ export default function VendorForm() {
                                 <div className="mt-4">
                                     <label htmlFor="date">Date<span className="text-red-700">*</span></label>
                                     <input type="date" id="date" className="border border-gray-400 rounded-md 
-                                 w-[95%] mt-2 h-9" required />
+                                 w-[95%] mt-2 h-9" required min={today} max={today} />
                                 </div>
                                 <div className="mt-10 text-center">
                                     <button className="text-xl font-bold text-white bg-gradient-to-r from-purple-600 to-blue-600 border border-none rounded-md w-[95%] h-10 mr-9 cursor-pointer hover:shadow-2xl shadow-blue-700">Submit</button>
