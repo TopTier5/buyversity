@@ -35,7 +35,7 @@ export default function Testimonial () {
     return (
         <>
         
-         <div className="text-center mb-10 mt-30">
+         <div className="text-center mb-10 mt-20">
         <h2 className="text-3xl md:text-4xl font-bold text-purple-800 mb-2">
           What Our Customers Say
         </h2>

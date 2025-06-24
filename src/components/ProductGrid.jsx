@@ -9,11 +9,13 @@ import jacket from "../assets/images/jeansjacket.jpg";
 import book1 from "../assets/images/book1.jpeg";
 import iphonexr from "../assets/images/iphonexr.jpg";
 import sneakerbox from "../assets/images/sneakerbox.jpeg";
+import basketball from "../assets/images/basketball.jpg"
+import gymshorts from "../assets/images/gymshorts.jpg"
 
 
 
-export default function ProductGrid() {
-     const [selectedCategory, setSelectedCategory] = useState("All Categories");
+export default function ProductGrid({ searchTerm = "" }) {
+  const [selectedCategory, setSelectedCategory] = useState("All Categories");
 
     const products = [
          {
@@ -22,7 +24,8 @@ export default function ProductGrid() {
             price: " 8,000.00",
             vendor: "Tech Zone",
             condition: "Used",
-            category: "Electronics"
+            category: "Electronics",
+            date: "01/02/2025"
         },
 
         {
@@ -31,7 +34,8 @@ export default function ProductGrid() {
             price: " 300.00",
             vendor: "Bismark Adjei",
             condition: "New",
-            category: "Clothing & Accessories"
+            category: "Clothing & Accessories",
+            date: "31/02/2025"
         },
 
         {
@@ -40,7 +44,8 @@ export default function ProductGrid() {
             price: " 500.00",
             vendor: "Yasmine Appiah",
             condition: "New",
-            category: "Hostel Essentials"
+            category: "Hostel Essential",
+            date: "21/03/2025"
         },
       
          {
@@ -49,7 +54,8 @@ export default function ProductGrid() {
             price: " 150.00",
             vendor: "Benjamin Asante",
             condition: "New",
-            category: "Electronics"
+            category: "Electronics",
+            date: "12/02/2025"
         },
 
           {
@@ -58,7 +64,8 @@ export default function ProductGrid() {
             price: " 100.00",
             vendor: "Richard Ofori",
             condition: "New",
-            category: "Clothing & Accessories"
+            category: "Clothing & Accessories",
+            date: "11/03/2025"
         },
          {
             image: camera,
@@ -66,16 +73,26 @@ export default function ProductGrid() {
             price: " 250.00",
             vendor: "Yasmin Djan",
             condition: "New",
-            category: "Electronics"
+            category: "Electronics",
+            date: "21/03/2025"
         },
-
+         {
+            image: gymshorts,
+            title: "Gym Shorts",
+            price: " 150.00",
+            vendor: "Abigail Nkrumah",
+            condition: "New",
+            category: "Sports",
+            date: "30/03/2025"
+        },
         {
             image: book1,
             title: "Poor Economics",
             price: " 85.00",
             vendor: "Justice Agyemang",
             condition: "Used",
-            category: "Books"
+            category: "Books",
+            date: "05/04/2025"
         },
         {
             image: iphonexr,
@@ -83,7 +100,8 @@ export default function ProductGrid() {
             price: " 2,000.00",
             vendor: "Darius Tech",
             condition: "New",
-            category: "Electronics"
+            category: "Electronics",
+            date: "18/04/2025"
         },
          {
             image: sneakerbox,
@@ -91,22 +109,40 @@ export default function ProductGrid() {
             price: " 250.00",
             vendor: "Daniel Asare",
             condition: "New",
-            category: "Hostel Essentials"
+            category: "Hostel Essentials",
+            date: "23/05/2025"
+        },
+         {
+            image: basketball,
+            title: "Wilson NCAA Baskeball",
+            price: " 200.00",
+            vendor: "Desmond Asare",
+            condition: "New",
+            category: "Sports",
+            date: "17/05/2025"
         },
     ]
 
 
-    const filteredProducts =
-        selectedCategory === "All Categories"
-            ? products
-            : products.filter((product) => product.category === selectedCategory);
+    const filteredProducts = products.filter((product) => {
+    const matchCategory =
+      selectedCategory === "All Categories" ||
+      product.category === selectedCategory;
 
+    const matchSearch =
+      searchTerm.trim() === "" ||
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.vendor.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.category.toLowerCase().includes(searchTerm.toLowerCase());
+
+    return matchCategory && matchSearch;
+  });
 
     return (
 
          <section className="py-10 px-5 w-[90%] mx-auto">
             <div className="flex flex-wrap gap-3 mb-8">
-                {["All Categories", "Electronics", "Clothing & Accessories", "Hostel Essentials", "Books", "Other"].map((category, index) => (
+                {["All Categories", "Electronics", "Clothing & Accessories", "Hostel Essentials", "Books","Sports", "Other"].map((category, index) => (
                     <button
                         key={index}
                         onClick={() => setSelectedCategory(category)}
@@ -132,6 +168,7 @@ export default function ProductGrid() {
                         vendor={product.vendor}
                         condition={product.condition}
                         category={product.category}
+                        date={product.date}
                     />
                 ))}
             </div>

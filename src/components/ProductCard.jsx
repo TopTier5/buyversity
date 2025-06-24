@@ -2,7 +2,7 @@ import { Eye } from "lucide-react";
 import { Link } from "react-router";
 
 
-export default function ProductCard({ image, title, price, vendor, condition, category }) {
+export default function ProductCard({ image, title, price, vendor, location, date, condition, category }) {
     return (
 
         <section className="bg-[#f1f6ff]">
@@ -24,12 +24,21 @@ export default function ProductCard({ image, title, price, vendor, condition, ca
             </div>
             <p className="text-primary font-bold mb-1">GH₵{price}</p>
            <div className="flex items-center justify-between text-sm text-gray-500">
-                <p>
+            <div className="flex flex-col">
+                    <p>
                     Sold by: <span className="font-medium">{vendor}</span>
                 </p>
+                {/* <p>
+                    Location: <span className="font-medium">{location}</span>
+                </p> */}
+                <p>
+                    Date Posted: <span className="font-medium">{date}</span>
+                </p>
+            </div>
+                
 
                     <Link to="/product-detail">
-                    <button className="text-purple-600 hover:text-purple-800 transition-colors duration-200 cursor-pointer flex flex-row text-xs gap-1">
+                    <button className="text-purple-600 hover:text-purple-800 transition-colors duration-200 cursor-pointer flex flex-row text-xs gap-2">
                      <Eye size={15} />View Details
                 </button>
                     

@@ -105,7 +105,7 @@ export default function ProductDetail() {
           </p>
         </div>
 
-        {/* Vendor Info */}
+      
         <div className="bg-white shadow rounded-lg p-6">
           <h4 className="text-lg font-semibold mb-4">📇 Vendor Information</h4>
           <p className="text-gray-700">
@@ -122,7 +122,7 @@ export default function ProductDetail() {
           </p>
         </div>
 
-        {/* Safety Tips */}
+        
         <div className="bg-white shadow rounded-lg p-6">
           <h4 className="text-lg font-semibold mb-4">Safety Tips</h4>
           <ul className="list-disc list-inside text-gray-600 text-sm space-y-1">
