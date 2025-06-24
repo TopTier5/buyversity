@@ -95,9 +95,9 @@ export default function EditForm() {
                                     mt-2 " required />
                                 </div>
 
-                                <div class=" flex w-full h-[80px] max-w-md items-center justify-center mt-4  mx-auto  gap-4">
-                                    <button class="flex-1 bg-blue-600 text-black text-base font-medium">Cancel</button>
-                                    <button class="flex-1 bg-purple-700 text-white text-base font-medium">Upload Ad</button>
+                                <div class=" flex w-full h-[80px] max-w-md items-center justify-center mt-4  mx-auto  gap-4 text-base font-medium">
+                                    <button class="flex-1 bg-white border border-gray-400 text-black text-base font-medium rounded-md p-4 hover:bg-gray-300 ">Cancel</button>
+                                    <button class="flex-1 bg-[#763FFB] text-white text-base font-medium rounded-md p-4 hover:bg-[#941BFA]">Upload Ad</button>
                                 </div>
 
                             </div>
