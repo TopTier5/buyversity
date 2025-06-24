@@ -15,7 +15,7 @@ export default function VendorForm() {
 
         <>
             <VendorNav />
-            
+
 
             <section className="flex flex-col items-center min-h-screen bg-purple-200" >
 
@@ -42,8 +42,8 @@ export default function VendorForm() {
                                         <option selected disabled>Select a Category
                                         </option>
                                         <option value="electronics">Electronics</option>
-                                        <option value="furniture">Furniture</option>
-                                        <option value="clothing">Clothing</option>
+                                        <option value="hostel essentials">Hostel Essentials</option>
+                                        <option value="clothing and accessories">Clothing and Accessories</option>
                                         <option value="books">Books</option>
                                         <option value="sports">Sports</option>
                                         <option value="other">Other</option>
@@ -88,25 +88,27 @@ export default function VendorForm() {
                                         <option value="kwame nkrumah university of science and technology">Kwame Nkrumah University of Science and Technology</option>
                                         <option value="university of health and allied sciences">University of Health and Allied Sciences</option>
                                         <option value="university of professional studies">University of Professional Studies</option>
-                                        <option value="ghana technology communication university">Ghana Technology Communication University</option>
+                                        <option value="ghana  communication technology university">Ghana Communication Technology  University</option>
                                         <option value="regional maritime university">Regional Maritime University</option>
                                         Accra Technical University
                                         <option value="other">Other</option>
                                     </select>
                                 </div>
-                                <div className="mt-4">
-                                    <label htmlFor="customUniversity">Enter Your University If not listed above <span className="text-red-700">*</span></label>
-                                    <input
-                                        type="text"
-                                        name="customUniversity"
-                                        id="customUniversity"
-                                        placeholder="Enter your university name"
-                                        value={customUniversity}
-                                        onChange={(e) => setCustomUniversity(e.target.value)}
-                                        className="border border-gray-400 rounded-md w-[95%] h-9 mt-2"
+                                {university === "other" && (
+                                    <div className="mt-4">
+                                        <label htmlFor="customUniversity">Enter Your University If not listed above <span className="text-red-700">*</span></label>
+                                        <input
+                                            type="text"
+                                            name="customUniversity"
+                                            id="customUniversity"
+                                            placeholder="Enter your university name"
+                                            value={customUniversity}
+                                            onChange={(e) => setCustomUniversity(e.target.value)}
+                                            className="border border-gray-400 rounded-md w-[95%] h-9 mt-2" required={university === "othere"}
+                                        />
+                                    </div>
+                                )}
 
-                                    />
-                                </div>
                                 <div className="mt-4">
                                     <label htmlFor="Location"> Location<span className="text-red-700">*</span></label>
                                     <input type="text" id="location" placeholder="Enter your location" className="border border-gray-400 rounded-md w-[95%] h-9
