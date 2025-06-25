@@ -11,8 +11,8 @@ export default function Register() {
   const Register = async (data) => {
     try {
       const response = await apiClient.post("/users/auth/signup", data, {
-        header: {
-          "Content-Type": "application/jason"
+        headers: {
+          "Content-Type": "application/json"
         }
       });
       console.log(response);
@@ -77,15 +77,15 @@ export default function Register() {
               <input type="password" name="confirmPassword" required minlength="8" maxlength="16" pattern="^[a-zA-Z0-9_]*${16}" placeholder="Confirm password" className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2" />
             </div>
 
-            <div className="flex flex-col mb-7">
+            {/* <div className="flex flex-col mb-7">
               <label className="block text-md text-black font-semibold text-left mb-2">Phone</label>
               <input type="tel" name="phone" placeholder="+233208242532" minLength={10} maxLength={12} required className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2" />
-            </div>
+            </div> */}
 
-            <div className="flex flex-col mb-7">
+            {/* <div className="flex flex-col mb-7">
               <label className="block text-md mb-2 text-black font-semibold text-left">Institution </label>
               <input type="text" name="institution" placeholder="Name of institution" required className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2" />
-            </div>
+            </div> */}
 
             {/* <div className="flex flex-col items-center">
               <button type="submit" className="border border-purple-600 bg-purple-600 rounded-md w-full text-white text-md px-4 py-2 mt-5" >Submit</button>

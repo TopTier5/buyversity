@@ -24,7 +24,7 @@ const eventHiveRouter = createBrowserRouter([
   { path: '/*', element: <NotFound /> },
   { path: '/vendor-dashboard', element: <VendorDashboard />},
   { path: '/user-page', element: <UserPage />},
-    { path: '/user-profile', element: <UserProfile />},
+  { path: '/user-profile', element: <UserProfile />},
     
 ]);
 

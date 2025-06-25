@@ -7,18 +7,18 @@ import SubmitButton from "../components/SubmitButton";
 import { apiClient } from "../api/client";
 
 export default function Login() {
-  const navigat = useNavigate ();
-  const longinUser = async (data) =>{
+  const navigate = useNavigate ();
+  const loginUser = async (data) =>{
     try {
       const response = await(apiClient).post("/users/auth/login", data, {
         headers: {
-          "Content-Type": 'application/jason'
+          "Content-Type": 'application/json'
         }
       });
 
       console.log(response);
       localStorage.setItem('ACCESS_TOKEN', response.data.data.accessToken);
-      navigat("/")
+      navigate("/user-page");
     }
     catch (error) {
             console.log(error);
@@ -34,7 +34,7 @@ export default function Login() {
                {/* Registration form */}
                <div className=" lg:w-full p-4">
                       
-                       <form action={longinUser} className="w-full lg:max-w-xl max-w-md">
+                       <form action={loginUser} className="w-full lg:max-w-xl max-w-md">
                            <h1 className="text-4xl font-bold text-purple-600 mb-5 text-center">Registration Form </h1>
                            <h1 className="lg:text-xl text-lg font-bold text-purple-400 mb-5 text-center">Register now to advertise your products. </h1>
 
