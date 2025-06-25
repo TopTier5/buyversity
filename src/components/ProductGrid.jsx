@@ -19,7 +19,7 @@ import { apiFetcher } from "../api/client";
 export default function ProductGrid({ searchTerm = "" }) {
 
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
-  const { data: products = [] , error, isLoading } = useSWR("/adverts", apiFetcher);
+  const { data: products = [], error, isLoading } = useSWR("/adverts", apiFetcher);
 
 
     // const products = [
