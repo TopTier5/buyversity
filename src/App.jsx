@@ -16,7 +16,7 @@ import UserProfile from "./pages/UserProfile";
 const eventHiveRouter = createBrowserRouter([
   { path: '/', element: <Home /> },
   { path: '/about', element: <About /> },
-  { path: '/edit-form', element: <EditForm /> },
+  { path: '/edit-form/:id', element: <EditForm /> },
   { path: '/login', element: <Login /> },
   { path: '/product-detail', element: <ProductDetail /> },
   { path: '/register', element: <Register /> },
@@ -24,7 +24,8 @@ const eventHiveRouter = createBrowserRouter([
   { path: '/*', element: <NotFound /> },
   { path: '/vendor-dashboard', element: <VendorDashboard />},
   { path: '/user-page', element: <UserPage />},
-    { path: '/user-profile', element: <UserProfile />},
+  { path: '/user-profile', element: <UserProfile />},
+    
 ]);
 
 function App() {
