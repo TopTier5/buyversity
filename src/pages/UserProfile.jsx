@@ -1,4 +1,4 @@
-import UserCard from "../components/Usercard";
+import UserCard from "../components/UserCard";
 import UserNavbar from "../components/UserNavbar";
 
 
