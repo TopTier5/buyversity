@@ -97,7 +97,7 @@ export default function EditForm() {
 
                                 <div class=" flex w-full h-[80px] max-w-md items-center justify-center mt-4  mx-auto  gap-4 text-base font-medium">
                                     <button class="flex-1 bg-white border border-gray-400 text-black text-base font-medium rounded-md p-4 hover:bg-gray-300 ">Cancel</button>
-                                    <button class="flex-1 bg-[#763FFB] text-white text-base font-medium rounded-md p-4 hover:bg-[#941BFA]">Update Ad</button>
+                                    <button class="flex-1  from-purple-500 to-blue-500 text-white text-base font-medium rounded-md p-4 hover:bg-[#941BFA]">Update Ad</button>
                                 </div>
 
                             </div>
