@@ -1,13 +1,42 @@
-import { User, ArrowLeft, Trash, EditIcon, TrashIcon, LocationEdit, Mail, Phone } from "lucide-react"
-import vintage from "../assets/images/vintage.jpg"
-import iphonexr from "../assets/images/iphonexr.jpg"
-import jeansjacket from "../assets/images/jeansjacket.jpg"
-import VendorNav from "../components/VendorNav"
-import { useState } from "react"
-import { Link } from "react-router"
-
+import { User, ArrowLeft, Trash, EditIcon, TrashIcon, LocationEdit, Mail, Phone } from "lucide-react";
+import vintage from "../assets/images/vintage.jpg";
+import iphonexr from "../assets/images/iphonexr.jpg";
+import jeansjacket from "../assets/images/jeansjacket.jpg";
+import VendorNav from "../components/VendorNav";
+import { useState, useEffect } from "react";
+import { Link } from "react-router";
+import axios from "axios";
 
 export default function VendorDashboard() {
+
+    const [summary, setSummary] = useState(null);
+    const vendorId = "your_vendor_id_here";
+    const token = "your_bearer_token_here";
+
+    useEffect(() => {
+        const fetchSummary = async () => {
+            try {
+                const response = await axios.get(
+                    `https://buyversitybackend-api.onrender.com/api/v1/adverts/vendor/summary?vendorId=${vendorId}`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                            "Content-Type": "application/json",
+                        },
+                    }
+                );
+                setSummary(response.data);
+            } catch (error) {
+                console.error("Error fetching vendor summary:", error);
+            }
+        };
+
+        fetchSummary();
+    }, []);
+
+
+
+
     const handleDelete = (id) => {
         setProducts(products.filter(product => product.id !== id));
     };
@@ -85,10 +114,13 @@ export default function VendorDashboard() {
 
                     <div className="border rounded-md border-purple-300 w-[30%] h-36 mt-10 ml-10">
                         <div className="p-8">
-                            <h1 className="text-4xl">{products.length}</h1>
+                            <h1 className="text-4xl">
+                                {summary?.summary?.totalAds ?? "Loading..."}
+                            </h1>
                             <h2 className="mt-2 text-2xl">Total Ads</h2>
                         </div>
                     </div>
+
                 </div>
 
                 <div className="w-full min-h-screen flex justify-center">
