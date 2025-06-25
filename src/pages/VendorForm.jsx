@@ -1,8 +1,9 @@
 import { useState } from "react";
 import VendorNav from "../components/VendorNav";
-import { ArrowLeft} from "lucide-react"
+import { ArrowLeft } from "lucide-react"
 import { User } from "lucide-react"
 import { Link } from "react-router";
+import { apiClient } from "../api/client";
 
 export default function VendorForm() {
     const [title, setTitle] = useState("");
@@ -20,22 +21,18 @@ export default function VendorForm() {
         e.preventDefault();
 
         const adData = {
-            title, description, price, category, location,condition,
+            title, description, price, category, location, condition,
             university: university === "other" ? customUniversity : university,
             date: today,
         };
 
         try {
-            const response = await fetch("/adverts", data,{
-                method: "POST",
+            const response = await apiClient.post("/adverts", adData, {
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                    Authorization: `Bearer ${localStorage.getItem("ACCESS_TOKEN")}`,
                 },
-                body: JSON.stringify(adData),
             });
-
-            const result = await response.json();
 
             if (response.ok) {
                 alert("Ad posted successfully!");
@@ -50,14 +47,14 @@ export default function VendorForm() {
 
     return (
         <>
-            
-         <nav className="flex justify-between py-3 px-6 bg-white shadow-xl">
-                <Link to="/">
-                <div className="flex items-center gap-2 ml-4 sm:ml-6 md:ml-10  ">
-                    <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white bg-gradient-to-r
+
+            <nav className="flex justify-between py-3 px-6 bg-white shadow-xl">
+                <Link to="/user-page">
+                    <div className="flex items-center gap-2 ml-4 sm:ml-6 md:ml-10  ">
+                        <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white bg-gradient-to-r
                   from-purple-600 to blue-600 rounded cursor-pointer" />
-                    <h1 className="font-bold text-xs text-transparent bg-clip-text bg-gradient-to-r from-purple-600  to-blue-600 cursor-pointer">Back to Marketplace</h1>
-                </div></Link>
+                        <h1 className="font-bold text-xs text-transparent bg-clip-text bg-gradient-to-r from-purple-600  to-blue-600 cursor-pointer">Back to Marketplace</h1>
+                    </div></Link>
                 <div className="flex justify-center items-center text-center px-3 ">
                     <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">Create Advertisement</h1>
                 </div>
@@ -76,7 +73,7 @@ export default function VendorForm() {
 
                 </div>
             </nav>
-        
+
             <form onSubmit={handleSubmit} className="flex flex-col items-center min-h-screen bg-purple-200">
                 <div className="mt-6 rounded-md min-h-screen w-full max-w-4xl bg-white px-6 py-8">
                     <h1 className="w-full text-center text-2xl sm:text-3xl lg:text-3xl font-bold text-white bg-gradient-to-r from-purple-600 to-blue-600 py-6 rounded-t-md">
@@ -118,7 +115,7 @@ export default function VendorForm() {
                             </div>
 
                             <div className="flex-1/2 ml-5">
-                                <label>Price (₵)<span className="text-red-700">*</span></label>
+                                <label>Price (GH₵)<span className="text-red-700">*</span></label>
                                 <input
                                     type="number"
                                     name="price"
