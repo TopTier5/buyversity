@@ -5,6 +5,7 @@ import { User } from "lucide-react";
 import SubmitButton from "../components/SubmitButton";
 import { apiClient } from "../api/client";
 import { useNavigate } from "react-router";
+import { useState } from "react";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -21,6 +22,9 @@ export default function Register() {
       console.log(error)
     }
   }
+
+const [university, setUniversity] = useState("");
+const [customUniversity, setCusomtUniversity] = useState("");
 
   return (
     <div className="bg-purple-300 min-h-screen md:py-4">
@@ -53,7 +57,7 @@ export default function Register() {
                 required
               >
                 <option value="" disabled selected>Select user type</option>
-                <option value="buyer">Regular User</option>
+                <option value="user">Regular User</option>
                 <option value="vendor">Vendor</option>
               </select>
             </div>
@@ -77,19 +81,53 @@ export default function Register() {
               <input type="password" name="confirmPassword" required minlength="8" maxlength="16" pattern="^[a-zA-Z0-9_]*${16}" placeholder="Confirm password" className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2" />
             </div>
 
-            {/* <div className="flex flex-col mb-7">
+            <div className="flex flex-col mb-7">
               <label className="block text-md text-black font-semibold text-left mb-2">Phone</label>
-              <input type="tel" name="phone" placeholder="+233208242532" minLength={10} maxLength={12} required className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2" />
-            </div> */}
+              <input type="tel" name="contact" placeholder="+233208242532" minLength={10} maxLength={12} required className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2" />
+            </div> 
 
-            {/* <div className="flex flex-col mb-7">
+             <div className="flex flex-col mb-7">
               <label className="block text-md mb-2 text-black font-semibold text-left">Institution </label>
-              <input type="text" name="institution" placeholder="Name of institution" required className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2" />
-            </div> */}
+              {/* <input type="text" name="institution" placeholder="Name of institution" required className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2" /> */}
 
-            {/* <div className="flex flex-col items-center">
-              <button type="submit" className="border border-purple-600 bg-purple-600 rounded-md w-full text-white text-md px-4 py-2 mt-5" >Submit</button>
-            </div> */}
+              <select
+                name="university"
+                class="w-full px-4 py-2 border border-purple-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+                required
+              >
+                <option value="" disabled selected>Select Institution</option>
+                <option value="University of Cape Coast">University of Cape Coast </option>
+                <option value="University of Ghana">University of Ghana</option>
+                <option value="Kwame Nkrumah University of Science and Technology (KNUST)">Kwame Nkrumah University of Science and Technology (KNUST)</option>
+                <option value="Other">Other</option>
+                <option value="University of Education, Winneba">University of Education, Winneba</option>
+                <option value="University for Development Studies">University for Development Studies</option>
+                <option value="University of Mines and Technology">University of Mines and Technology</option>
+                <option value="University of Energy and Natural Resources">University of Energy and Natural Resources</option>
+                <option value="University of Health and Allied Sciences">University of Health and Allied Sciences</option>
+                <option value="Ashesi University">Ashesi University</option>
+                <option value="Central University">Central University</option>
+                <option value="Pentecost University College">Pentecost University College</option>
+                <option value=" All Nations University"> All Nations University</option>
+                <option value="Accra Institute of Technology">Accra Institute of Technology</option>
+                <option value="Methodist University College">Methodist University College</option>
+                <option value="Catholic University College of Ghana">Catholic University College of Ghana</option>
+                <option value="Presbyterian University College">Presbyterian University College</option>
+                {/* <option value="Other">Other</option> */}
+              </select>
+            </div> 
+
+            {university === "other" && (
+              <div className="mt-5">
+                 <label>Your University </label>
+              <input 
+              type="text" name="lastName" placeholder="Last Name" required 
+               value={customUniversity}
+               onChange={(e) => setCustomUniversity(e,target.value)}
+               className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2"
+               />
+              </div>
+            )}
             <div className="flex flex-col items-center">
               <SubmitButton className="border border-purple-600 bg-purple-600 rounded-md w-full text-white text-md px-4 py-2 mt-5"
                 title={"Register Account"} />
@@ -101,3 +139,8 @@ export default function Register() {
     </div>
   );
 }
+
+
+  
+
+
