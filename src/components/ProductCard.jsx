@@ -2,7 +2,7 @@ import { Eye } from "lucide-react";
 import { Link } from "react-router";
 
 
-export default function ProductCard({ image, title, price, vendor, location, date, condition, category }) {
+export default function ProductCard({ image, title, price, vendor, date, condition, category }) {
     return (
 
         <section className="bg-[#f1f6ff]">
@@ -28,9 +28,7 @@ export default function ProductCard({ image, title, price, vendor, location, dat
                     <p>
                     Sold by: <span className="font-medium">{vendor}</span>
                 </p>
-                {/* <p>
-                    Location: <span className="font-medium">{location}</span>
-                </p> */}
+    
                 <p>
                     Date Posted: <span className="font-medium">{date}</span>
                 </p>
