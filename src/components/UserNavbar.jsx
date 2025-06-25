@@ -32,7 +32,7 @@ export default function VendorNav() {
                     <User className="w-5 h-5 text-white" />
                 </div>
 
-                <Link to="/">
+                <Link to="/user-page">
                     <div
                         className="border border-[#D8B4FE] bg-gradient-to-r from-purple-600 to-blue-600
                    text-white px-3 py-2 text-sm font-semibold rounded-md

@@ -63,7 +63,7 @@ export default function LoginNavbar() {
                         </Link>
 
 
-                        <Link to="/vendor-form">
+                        <Link to="/vendor-dashboard" >
                         
                         <button className="flex items-center gap-1 border border-purple-300 px-3 py-1 rounded-md text-purple-700 hover:text-black text-sm cursor-pointer">
                             Become A Vendor
