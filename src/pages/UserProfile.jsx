@@ -10,11 +10,6 @@ export default function UserProfile() {
         <UserNavbar />
         <UserCard />
 
-
-
-
-
-
         </>
 
 

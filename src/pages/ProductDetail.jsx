@@ -51,10 +51,19 @@ export default function ProductDetail() {
 
 
 
+
+
+
+
+
+
+
+
+
   const [searchParams] =useSearchParams()
   const id = searchParams.get("id")  
 
-  const  {data, isLoading, error} = useSWR(`/adverts/:id/${id}`, apiFetcher);
+  const  {data, isLoading, error} = useSWR(`/adverts/.id/${id}`, apiFetcher);
 
   useEffect(() => {
     scrollTo(0,0)
