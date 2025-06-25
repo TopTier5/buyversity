@@ -41,7 +41,7 @@ export default function Login() {
    
                            <div className="flex flex-col mb-7">
                                <label className="block text-md text-black font-semibold mb-2 text-left">Email</label>
-                               <input type="email" name="name" placeholder="kobiahchristiana@gmail.com" required className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2" />
+                               <input type="email" name="email" placeholder="kobiahchristiana@gmail.com" required className="border border-gray-500 rounded-md w-full text-gray-700 text-md px-4 py-2" />
                            </div>
    
                            <div className="flex flex-col mb-7">
