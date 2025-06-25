@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, Search } from "lucide-react";
+import hero0 from "../assets/images/hero0.jpg";
 import hero1 from "../assets/images/hero1.jpg";
 import hero2 from "../assets/images/hero2.jpg";
 import hero3 from "../assets/images/hero3.jpg";
@@ -7,6 +8,13 @@ import hero4 from "../assets/images/hero4.jpg";
 import hero5 from "../assets/images/hero5.jpg";
 
 const slides = [
+
+  {
+    image: hero0,
+    title: "Welcome To BuyVersity",
+    subtitle: "Buy & sell everything you need for university life- from electronics to hostel essentials",
+  },
+
   {
     image: hero1,
     title: "Shop Electronics",

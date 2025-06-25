@@ -1,10 +1,16 @@
 import { useState } from "react";
 import VendorNav from "../components/VendorNav";
+import { useParams } from "react-router";
 
 
 export default function EditForm() {
+     const { id } = useParams();
     const [university, setUniversity] = useState('');
     const [customUniversity, setCustomUniversity] = useState('');
+
+     console.log("Editing ad with ID:", id)
+
+    
 
     return (
 
@@ -55,7 +61,7 @@ export default function EditForm() {
                                     className="border border-gray-400 rounded-md w-[95%] h-20 mt-2" required />
                             </div>
 
-                            
+
                             <div className=" mt-4">
                                 <div><label htmlFor="University/Tertiary Institution" >University/Tertiary Institution<span className="text-red-700">*</span></label>
                                     <select name="university/tertiaryinstituton" id="university/tertiayinstitution" className="border border-gray-400 rounded-md w-[95%] h-9 mt-2" required

@@ -9,4 +9,4 @@ export const apiFetcher = async (url) => {
     return response.data;   
 }
 
-export const imageBaseURL = import.meta.env.VITE_BASE_URL;
+export const imageBaseURL = import.meta.env.VITE_IMAGE_BASE_URL;
