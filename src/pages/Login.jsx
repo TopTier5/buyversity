@@ -26,17 +26,17 @@ export default function Login() {
     }
   }
   return (
-    <div className="bg-purple-300 min-h-screen md:py-4">
+    <div className="bg-purple-300 min-h-screen md:py-4 overflow-hidden">
 
       <div className="flex flex-col lg:flex-row lg:w-9/12 w-full bg-white rounded-md mx-auto overflow-hidden">
 
-        <div className="w-full lg:p-0  p-8 sm:p-4 bg-white order-2 lg:order-none flex flex-col lg:flex-row items-center">
+        <div className="w-full lg:p-0  p-8 sm:p-4 bg-white order-2 lg:order-none flex flex-col lg:flex-row items-center overflow-hidden">
           {/* Registration form */}
           <div className=" lg:w-full p-4">
 
             <form action={loginUser} className="w-full lg:max-w-xl max-w-md">
-              <h1 className="text-4xl font-bold text-purple-600 mb-5 text-center">Registration Form </h1>
-              <h1 className="lg:text-xl text-lg font-bold text-purple-400 mb-5 text-center">Register now to advertise your products. </h1>
+              <h1 className="text-4xl font-bold text-purple-600 mb-5 text-center">Login Form </h1>
+              <h1 className="lg:text-xl text-lg font-bold text-purple-400 mb-5 text-center">Signin to see amazing products and offers . </h1>
 
 
               <div className="flex flex-col mb-7">
@@ -55,11 +55,11 @@ export default function Login() {
               </div>
             </form>
 
-            <div className="flex flex-row border border-purple-200 rounded-md bg-white text-gray-700 text-sm px-6 py-2.5 w-full mt-8">
+            <div className="flex flex-row border border-purple-200 rounded-md bg-white text-gray-700 text-sm px-6 py-2.5 w-full mt-12">
               <a href="" className="flex flex-row">
-                <img src={google} className="h-6 w-6 text-center lg:ml-10 ml-8 mr-2 mt-0.5 md:ml-10" />
+                <img src={google} className="h-6 w-6 text-center lg:ml-20 ml-8 mr-2 mt-0.5 md:ml-10" />
                 <p className="text-center text-lg whitespace-nowrap">Sign up with Google</p>
-              </a>+
+              </a>
 
             </div>
           </div>
