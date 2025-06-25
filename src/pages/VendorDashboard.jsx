@@ -17,7 +17,7 @@ export default function VendorDashboard() {
         const fetchSummary = async () => {
             try {
                 const response = await axios.get(
-                    `https://buyversitybackend-api.onrender.com/api/v1/adverts/vendor/summary?vendorId=${vendorId}`,
+                    `/adverts/vendor/summary=${vendorId}`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,
