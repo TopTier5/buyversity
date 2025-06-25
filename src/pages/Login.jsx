@@ -1,10 +1,30 @@
 import registaimage from "../assets/images/registaimage.png";
 import google from "../assets/images/google.png";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { LucideUser } from "lucide-react";
 import { User } from "lucide-react";
+import SubmitButton from "../components/SubmitButton";
+import { apiClient } from "../api/client";
 
 export default function Login() {
+  const navigat = useNavigate ();
+  const longinUser = async (data) =>{
+    try {
+      const response = await(apiClient).post("/users/auth/login", data, {
+        headers: {
+          "Content-Type": 'application/jason'
+        }
+      });
+
+      console.log(response);
+      localStorage.setItem('ACCESS_TOKEN', response.data.data.accessToken);
+      navigat("/")
+    }
+    catch (error) {
+            console.log(error);
+
+        }
+  }
   return (
    <div className="bg-purple-300 min-h-screen md:py-4">
    
@@ -14,7 +34,7 @@ export default function Login() {
                {/* Registration form */}
                <div className=" lg:w-full p-4">
                       
-                       <form className="w-full lg:max-w-xl max-w-md">
+                       <form action={longinUser} className="w-full lg:max-w-xl max-w-md">
                            <h1 className="text-4xl font-bold text-purple-600 mb-5 text-center">Registration Form </h1>
                            <h1 className="lg:text-xl text-lg font-bold text-purple-400 mb-5 text-center">Register now to advertise your products. </h1>
 
@@ -31,7 +51,7 @@ export default function Login() {
 
    
                            <div className="flex flex-col items-center">
-                               <button type="submit" className="border border-purple-600 bg-purple-600 rounded-md w-full text-white text-md px-4 py-2 mt-5" >Login</button>
+                               <SubmitButton title={'Login'} className="border border-purple-600 bg-purple-600 rounded-md w-full text-white text-md px-4 py-2 mt-5" />
                            </div>
                        </form>
 
