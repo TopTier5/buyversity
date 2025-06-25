@@ -33,18 +33,51 @@ export default function ProductDetail() {
 
   const nextImage = () => {
     setCurrentImageIndex((prev) =>
-      prev === dummyProduct.images.length - 1 ? 0 : prev + 1
+      prev === data.images.length - 1 ? 0 : prev + 1
     );
   };
 
   const prevImage = () => {
     setCurrentImageIndex((prev) =>
-      prev === 0 ? dummyProduct.images.length - 1 : prev - 1
+      prev === 0 ? data.images.length - 1 : prev - 1
     );
   };
 
-  const [searchParams] = useSearchParams()
-  const id = searchParams.get("id")
+
+
+
+
+
+
+
+
+  const [searchParams] =useSearchParams()
+  const id = searchParams.get("id")  
+
+  const  {data, isLoading, error} = useSWR(`/adverts/:id/${id}`, apiFetcher);
+
+  useEffect(() => {
+    scrollTo(0,0)
+  }, [id]);
+
+  if (isLoading ) {
+    return(
+      <div>
+        <p>loading event detail...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+      return(
+        <div>
+          <p>something went wrong</p>
+        </div>
+      );
+      
+    }
+
+
 
   return (
     <>
@@ -56,11 +89,11 @@ export default function ProductDetail() {
           <div className="flex-1">
             <div className="relative">
               <img
-                src={dummyProduct.images[currentImageIndex]}
-                alt={dummyProduct.title}
+                src={data.images[currentImageIndex]}
+                alt={data.title}
                 className="w-full h-96 object-cover rounded-lg"
               />
-              {dummyProduct.images.length > 1 && (
+              {data.images.length > 1 && (
                 <>
                   <button
                     onClick={prevImage}
@@ -81,18 +114,18 @@ export default function ProductDetail() {
             <div className="mt-6 bg-white shadow rounded-lg p-6">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-bold text-gray-800">
-                  {dummyProduct.title}
+                  {data.title}
                 </h2>
                 <span className="bg-gray-200 px-3 py-1 rounded-full text-sm font-semibold">
-                  {dummyProduct.category}
+                  {data.category}
                 </span>
               </div>
               <p className="text-gray-500 text-sm mb-4">
-                📅 Posted on {dummyProduct.date}
+                📅 Posted on {data.date}
               </p>
               <h3 className="font-semibold text-lg mb-2">Description</h3>
               <p className="text-gray-700 leading-relaxed">
-                {dummyProduct.description}
+                {data.description}
               </p>
             </div>
           </div>
@@ -102,7 +135,7 @@ export default function ProductDetail() {
 
             <div className="bg-white shadow rounded-lg p-6">
               <p className="text-2xl font-bold text-gray-800">
-                GH₵ {dummyProduct.price}
+                GH₵ {data.price}
               </p>
             </div>
 
@@ -110,16 +143,16 @@ export default function ProductDetail() {
             <div className="bg-white shadow rounded-lg p-6">
               <h4 className="text-lg font-semibold mb-4">📇 Vendor Information</h4>
               <p className="text-gray-700">
-                <strong>Name:</strong> {dummyProduct.vendor.name}
+                <strong>Name:</strong> {data.vendor.name}
               </p>
               <p className="flex items-center gap-2 text-gray-600 mt-2">
-                <MapPin size={16} /> {dummyProduct.vendor.location}
+                <MapPin size={16} /> {data.vendor.location}
               </p>
               <p className="flex items-center gap-2 text-gray-600 mt-2">
-                <Mail size={16} /> {dummyProduct.vendor.email}
+                <Mail size={16} /> {data.vendor.email}
               </p>
               <p className="flex items-center gap-2 text-gray-600 mt-2">
-                <Phone size={16} /> {dummyProduct.vendor.phone}
+                <Phone size={16} /> {data.vendor.phone}
               </p>
             </div>
 

@@ -11,12 +11,10 @@ export default function LoginNavbar() {
             <div className="flex items-center justify-between flex-wrap">
 
                 <div className="flex items-center gap-2">
-                        <Link to="/" >
+                       
                         <div className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-3 py-1 rounded-md font-bold text-xl cursor-pointer">
                          B 
-                    </div>
-                        </Link>
-                         
+                    </div> 
                     <span className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
                         BuyVersity
                     </span>
@@ -38,7 +36,7 @@ export default function LoginNavbar() {
                     </Link>
                     
 
-                    <Link to="/vendor-form">
+                    <Link to="/vendor-dashboard">
                     
                     <button className="flex items-center gap-1 border border-purple-300 px-3 py-1 rounded-md text-purple-700 hover:text-black text-sm cursor-pointer">
                         Become A Vendor
@@ -63,12 +61,13 @@ export default function LoginNavbar() {
                         </Link>
 
 
-                        <Link to="/vendor-dashboard" >
-                        
+                       <Link to="/vendor-dashboard">
                         <button className="flex items-center gap-1 border border-purple-300 px-3 py-1 rounded-md text-purple-700 hover:text-black text-sm cursor-pointer">
                             Become A Vendor
                         </button>
-                        </Link>
+                       </Link>
+                        
+                       
                         
                     </div>
                 </div>
