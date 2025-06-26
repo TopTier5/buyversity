@@ -51,7 +51,7 @@ const team = [
     },
 
     {
-        name: "Bismark Pikrah",
+        name: "Bismark Pinkrah",
         role: "Back-End & Team Member", 
         bio: "",
         image: team6,
