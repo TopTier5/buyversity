@@ -5,6 +5,7 @@ import { LucideUser } from "lucide-react";
 import { User } from "lucide-react";
 import SubmitButton from "../components/SubmitButton";
 import { apiClient } from "../api/client";
+import { toast } from "sonner";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -21,7 +22,10 @@ export default function Login() {
       navigate("/user-page");
     }
     catch (error) {
-      console.log(error);
+      console.log(error.response);
+       const errorMessage = error.response.data.message
+       console.log(errorMessage)
+      toast.error(errorMessage)
 
     }
   }

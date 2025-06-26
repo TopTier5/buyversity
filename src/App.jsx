@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import VendorDashboard from "./pages/VendorDashboard";
 import UserPage from "./pages/UserPage";
 import UserProfile from "./pages/UserProfile";
+import { Toaster, } from 'sonner';
 
 
 
@@ -33,6 +34,7 @@ function App() {
   return (
     <>
     <RouterProvider router={eventHiveRouter} />
+        <Toaster richColors/>
     </>
   )
 }

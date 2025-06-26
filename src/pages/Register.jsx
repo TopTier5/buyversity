@@ -6,6 +6,7 @@ import SubmitButton from "../components/SubmitButton";
 import { apiClient } from "../api/client";
 import { useNavigate } from "react-router";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -17,9 +18,16 @@ export default function Register() {
         }
       });
       console.log(response);
-      navigate("/login");
+      toast.success("user registered successful")
+      if(response.status===201){
+        navigate("/login");
+
+      }
+      
     } catch (error) {
       console.log(error)
+      const errorMessage = error.response.data.message
+      toast.error(errorMessage)
     }
   }
 
