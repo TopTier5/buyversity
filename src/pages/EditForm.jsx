@@ -58,7 +58,7 @@ export default function EditForm() {
         <>
 
          <nav className="flex justify-between py-3 px-6 bg-white shadow-xl">
-                <Link to="/">
+                <Link to="/user-page">
                 <div className="flex items-center gap-2 ml-4 sm:ml-6 md:ml-10  ">
                     <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white bg-gradient-to-r
                   from-purple-600 to blue-600 rounded cursor-pointer" />

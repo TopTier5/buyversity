@@ -6,6 +6,8 @@ import camera1 from "../assets/images/camera1.jpg";
 import { useSearchParams } from "react-router";
 import useSWR from "swr";
 import { apiFetcher } from "../api/client";
+import { EditIcon } from "lucide-react";
+import { Link } from "react-router";
 
 
 const dummyProduct = {
@@ -138,6 +140,10 @@ export default function ProductDetail() {
               <p className="flex items-center gap-2 text-gray-600 mt-2">
                 <Phone size={16} /> {product.vendor.phone}
               </p>
+              
+
+             
+              
             </div>
 
             <div className="bg-white shadow rounded-lg p-6">

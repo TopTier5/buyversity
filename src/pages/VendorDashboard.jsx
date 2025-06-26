@@ -1,14 +1,27 @@
 import { useState } from "react";
-import {ArrowLeft,Trash,User,EditIcon,TrashIcon,LocationEdit,Mail,Phone,} from "lucide-react";
+import {
+  ArrowLeft,
+  Trash,
+  User,
+  EditIcon,
+  TrashIcon,
+  LocationEdit,
+  Mail,
+  Phone,
+} from "lucide-react";
 import vintage from "../assets/images/vintage.jpg";
 import iphonexr from "../assets/images/iphonexr.jpg";
 import jeansjacket from "../assets/images/jeansjacket.jpg";
 import VendorNav from "../components/VendorNav";
+import { Link } from "react-router";
+
+
+
+
+
 
 export default function VendorDashboard() {
-
-
-    
+  // 💡 Products array
   const [products, setProducts] = useState([
     {
       id: 1,
@@ -38,32 +51,6 @@ export default function VendorDashboard() {
       postedDate: "04/07/25",
     },
   ]);
-
-
-
-  const deleteAdvert = (advertId) => {
-        apiClient.delete(`/adverts/${advertId}`)
-            .then((response) => {
-                console.log(response);
-                navigate('/');
-            })
-            .catch((error) => {
-                console.log(error);
-                toast.error(error.response.data.message)
-            })
-
-        }
-
-
-
-
-
-
-
-
-
-
-
 
   return (
     <>
@@ -139,11 +126,18 @@ export default function VendorDashboard() {
                   </div>
                 </div>
                 <div className="absolute bottom-2 right-2 flex gap-3">
-                  <button className="flex items-center text-sm text-blue-600 hover:underline">
+                  
+                  
+                  
+                  <Link to="/edit-form/:id">
+                  <button className="flex items-center text-sm text-blue-600 hover:underline cursor-pointer">
                     <EditIcon className="w-4 h-4 mr-1" />
                     Edit
                   </button>
-                  <button onClick={()=> deleteAdvert(advertId)} className="flex items-center text-sm text-red-600 hover:underline">
+                  
+                  </Link>
+                  
+                  <button className="flex items-center text-sm text-red-600 hover:underline cursor-pointer">
                     <Trash className="w-4 h-4 mr-1" />
                     Delete
                   </button>

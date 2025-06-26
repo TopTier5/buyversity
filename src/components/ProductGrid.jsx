@@ -116,6 +116,7 @@ export default function ProductGrid({ searchTerm = "" }) {
             )}
           </p>
         )}
+        
       </div>
     </section>
   );

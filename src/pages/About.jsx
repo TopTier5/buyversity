@@ -6,6 +6,8 @@ import team1 from "../assets/images/team1.jpg"
 import team2 from "../assets/images/team2.jpg"
 import team3 from "../assets/images/team3.jpg"
 import team5 from "../assets/images/team5.jpg"
+import team6 from "../assets/images/team6.jpg"
+
 
 
 
@@ -46,7 +48,18 @@ const team = [
         image: team5,
         alt: "Vonette Aboe",
         color: "text-purple-600"
+    },
+
+    {
+        name: "Bismark Pikrah",
+        role: "Back-End & Team Member", 
+        bio: "",
+        image: team6,
+        alt: "Bismark Pinkrah",
+        color: "text-purple-600"
     }
+
+
 ]
 
 
