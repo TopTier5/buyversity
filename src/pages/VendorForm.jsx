@@ -170,12 +170,24 @@ export default function VendorForm() {
                 onChange={(e) => setUniversity(e.target.value)}
                 className="border border-gray-400 rounded-md w-full h-9 mt-2 px-2"
               >
-                <option value="" disabled>Select Institution</option>
+                 <option value="" disabled selected>Select Institution</option>
+                <option value="University of Cape Coast">University of Cape Coast </option>
                 <option value="University of Ghana">University of Ghana</option>
-                <option value="University of Cape Coast">University of Cape Coast</option>
-                <option value="Ashesi University">Ashesi University</option>
-                <option value="KNUST">KNUST</option>
+                <option value="Kwame Nkrumah University of Science and Technology (KNUST)">Kwame Nkrumah University of Science and Technology (KNUST)</option>
                 <option value="Other">Other</option>
+                <option value="University of Education, Winneba">University of Education, Winneba</option>
+                <option value="University for Development Studies">University for Development Studies</option>
+                <option value="University of Mines and Technology">University of Mines and Technology</option>
+                <option value="University of Energy and Natural Resources">University of Energy and Natural Resources</option>
+                <option value="University of Health and Allied Sciences">University of Health and Allied Sciences</option>
+                <option value="Ashesi University">Ashesi University</option>
+                <option value="Central University">Central University</option>
+                <option value="Pentecost University College">Pentecost University College</option>
+                <option value=" All Nations University"> All Nations University</option>
+                <option value="Accra Institute of Technology">Accra Institute of Technology</option>
+                <option value="Methodist University College">Methodist University College</option>
+                <option value="Catholic University College of Ghana">Catholic University College of Ghana</option>
+                <option value="Presbyterian University College">Presbyterian University College</option>
               </select>
             </label>
 
