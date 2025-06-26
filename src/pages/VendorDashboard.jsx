@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   ArrowLeft,
   Trash,
@@ -15,42 +15,82 @@ import jeansjacket from "../assets/images/jeansjacket.jpg";
 import VendorNav from "../components/VendorNav";
 import { Link } from "react-router";
 
-
-
-
-
-
 export default function VendorDashboard() {
-  // 💡 Products array
-  const [products, setProducts] = useState([
-    {
-      id: 1,
-      image: vintage,
-      title: "Vintage Camera",
-      description: "Classic film camera in excellent condition",
-      price: "3000₵",
-      category: "Electronics",
-      postedDate: "05/31/25",
-    },
-    {
-      id: 2,
-      image: iphonexr,
-      title: "iPhone XR",
-      description: "Brand new iPhone XR",
-      price: "7500₵",
-      category: "Electronics",
-      postedDate: "1/11/25",
-    },
-    {
-      id: 3,
-      image: jeansjacket,
-      title: "Jeans Jacket",
-      description: "Lightly Used Classic Blue Jeans Jacket",
-      price: "145.00₵",
-      category: "Clothing",
-      postedDate: "04/07/25",
-    },
-  ]);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [fetchingProducts, setFetchingProducts] = useState(true);
+
+  // Fetch products from API
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    setFetchingProducts(true);
+    try {
+      // Replace with your actual API endpoint to get user's products
+      const response = await fetch('/api/products/user', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          // Add authentication header if needed
+          // 'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setProducts(data.products || data); // Adjust based on your API response structure
+      } else {
+        console.error('Failed to fetch products');
+        alert('Failed to load your advertisements');
+      }
+    } catch (error) {
+      console.error('Error fetching products:', error);
+      alert('An error occurred while loading your advertisements');
+    } finally {
+      setFetchingProducts(false);
+    }
+  };
+
+  // Delete product function
+  const handleDeleteProduct = async (productId) => {
+    // Confirm before deleting
+    if (!window.confirm("Are you sure you want to delete this advertisement?")) {
+      return;
+    }
+
+    setLoading(true);
+    
+    try {
+      // Replace with your actual API endpoint
+      const response = await fetch(`/api/products/${productId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          // Add authentication header if needed
+          // 'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        // Remove the product from the local state
+        setProducts(products.filter(product => (product.id || product._id) !== productId));
+        
+        // Optional: Show success message
+        alert("Advertisement deleted successfully!");
+      } else {
+        // Handle error response
+        const errorData = await response.json();
+        alert(`Failed to delete advertisement: ${errorData.message || 'Unknown error'}`);
+      }
+    } catch (error) {
+      console.error('Error deleting product:', error);
+      alert("An error occurred while deleting the advertisement. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -103,47 +143,58 @@ export default function VendorDashboard() {
               </h2>
             </div>
 
-            {/* Render ads from product array */}
-            {products.map((product) => (
-              <div
-                key={product.id}
-                className="relative border rounded-md mt-6 border-purple-300 w-[95%] mx-auto p-4 h-40"
-              >
-                <div className="flex">
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className="w-20 h-20 rounded-md"
-                  />
-                  <div className="ml-4">
-                    <h1 className="font-bold">{product.title}</h1>
-                    <h2 className="text-sm mt-1">{product.description}</h2>
-                    <h3 className="text-xs mt-1">
-                      {product.price}
-                      <span className="ml-2">{product.category}</span>
-                      <span className="ml-2">Posted {product.postedDate}</span>
-                    </h3>
+            {/* Loading state */}
+            {fetchingProducts ? (
+              <div className="text-center py-8">
+                <p>Loading your advertisements...</p>
+              </div>
+            ) : products.length === 0 ? (
+              <div className="text-center py-8">
+                <p className="text-gray-500">No advertisements found. Start by posting your first ad!</p>
+              </div>
+            ) : (
+              // Render ads from product array
+              products.map((product) => (
+                <div
+                  key={product.id || product._id} // Use _id if MongoDB
+                  className="relative border rounded-md mt-6 border-purple-300 w-[95%] mx-auto p-4 h-40"
+                >
+                  <div className="flex">
+                    <img
+                      src={product.image || product.imageUrl || '/placeholder-image.jpg'} // Adjust based on your API field names
+                      alt={product.title || product.name}
+                      className="w-20 h-20 rounded-md object-cover"
+                    />
+                    <div className="ml-4">
+                      <h1 className="font-bold">{product.title || product.name}</h1>
+                      <h2 className="text-sm mt-1">{product.description}</h2>
+                      <h3 className="text-xs mt-1">
+                        {product.price}₵
+                        <span className="ml-2">{product.category}</span>
+                        <span className="ml-2">Posted {new Date(product.createdAt || product.postedDate).toLocaleDateString()}</span>
+                      </h3>
+                    </div>
+                  </div>
+                  <div className="absolute bottom-2 right-2 flex gap-3">
+                    <Link to={`/edit-form/${product.id || product._id}`}>
+                      <button className="flex items-center text-sm text-blue-600 hover:underline cursor-pointer">
+                        <EditIcon className="w-4 h-4 mr-1" />
+                        Edit
+                      </button>
+                    </Link>
+                    
+                    <button 
+                      onClick={() => handleDeleteProduct(product.id || product._id)}
+                      disabled={loading}
+                      className="flex items-center text-sm text-red-600 hover:underline cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      <Trash className="w-4 h-4 mr-1" />
+                      {loading ? 'Deleting...' : 'Delete'}
+                    </button>
                   </div>
                 </div>
-                <div className="absolute bottom-2 right-2 flex gap-3">
-                  
-                  
-                  
-                  <Link to="/edit-form/:id">
-                  <button className="flex items-center text-sm text-blue-600 hover:underline cursor-pointer">
-                    <EditIcon className="w-4 h-4 mr-1" />
-                    Edit
-                  </button>
-                  
-                  </Link>
-                  
-                  <button className="flex items-center text-sm text-red-600 hover:underline cursor-pointer">
-                    <Trash className="w-4 h-4 mr-1" />
-                    Delete
-                  </button>
-                </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
       </section>
