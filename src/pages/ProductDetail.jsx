@@ -1,22 +1,21 @@
 import UserNavbar from "../components/UserNavbar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MapPin, Mail, Phone } from "lucide-react";
 import camera from "../assets/images/polaroid.jpg";
-import camera1 from "../assets/images/camera1.jpg"
+import camera1 from "../assets/images/camera1.jpg";
 import { useSearchParams } from "react-router";
 import useSWR from "swr";
 import { apiFetcher } from "../api/client";
-import { useEffect } from "react";
-
 
 
 const dummyProduct = {
   title: "Polaroid Camera",
-  price: " 250.00",
+  price: "250.00",
   category: "Electronics",
   images: [camera, camera1],
-  description: "Classic film camera in excellent condition. This beautiful polaroid camera has been well-maintained. Perfect for photography enthusiasts or collectors.",
-  date: "2024-01-15",
+  description:
+    "Classic film camera in excellent condition. Perfect for photography enthusiasts or collectors.",
+  date: "2025-03-21",
   vendor: {
     name: "Yasmin Djan",
     location: "University of Ghana, Legon",
@@ -25,20 +24,18 @@ const dummyProduct = {
   },
 };
 
-
-
-
 export default function ProductDetail() {
-
   const [searchParams] = useSearchParams();
   const advertId = searchParams.get("id");
+
+
   const { data: advert, error, isLoading, } = useSWR(`/adverts/${advertId}`, apiFetcher);
 
+  const product = advert || dummyProduct;
+  const images = product.images ?? [];
 
-  const images = advert?.images ?? [];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
   useEffect(() => setCurrentImageIndex(0), [advertId, images.length]);
 
   const nextImage = () =>
@@ -51,26 +48,17 @@ export default function ProductDetail() {
     );
 
 
-  if (isLoading) {
+  if (isLoading)
     return (
-
-      <div className="p-10">Loading…</div>
-
+      <>
+        <UserNavbar />
+        <div className="p-10">Loading…</div>
+      </>
     );
-  }
 
-  if (error) {
-    return (
 
-      <div className="p-10 text-red-600">Something went wrong</div>
-
-    );
-  }
-
-  if (!advert) {
-    return (
-      <div className="p-10 text-red-600">Advert not found.</div>
-    );
+  if (error && !advert) {
+    console.error(error);
   }
 
   return (
@@ -79,13 +67,12 @@ export default function ProductDetail() {
       <section className="bg-purple-200 min-h-screen">
         <div className="max-w-7xl mx-auto px-4 py-10 flex flex-col md:flex-row gap-10">
 
-
           <div className="flex-1">
             <div className="relative">
               {images.length > 0 && (
                 <img
                   src={images[currentImageIndex]}
-                  alt={advert.title}
+                  alt={product.title}
                   className="w-full h-96 object-cover rounded-lg"
                 />
               )}
@@ -111,30 +98,46 @@ export default function ProductDetail() {
             <div className="mt-6 bg-white shadow rounded-lg p-6">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-bold text-gray-800">
-                  {advert.title}
+                  {product.title}
                 </h2>
                 <span className="bg-gray-200 px-3 py-1 rounded-full text-sm font-semibold">
-                  {advert.category}
+                  {product.category}
                 </span>
               </div>
-              <p className="text-gray-500 text-sm mb-4">📅 Posted on {advert.date}</p>
+              <p className="text-gray-500 text-sm mb-4">
+                📅 Posted on {product.date}
+              </p>
               <h3 className="font-semibold text-lg mb-2">Description</h3>
-              <p className="text-gray-700 leading-relaxed">{advert.description}</p>
+              <p className="text-gray-700 leading-relaxed">
+                {product.description}
+              </p>
             </div>
           </div>
 
 
           <div className="w-full md:w-80 space-y-6">
             <div className="bg-white shadow rounded-lg p-6">
-              <p className="text-2xl font-bold text-gray-800">GH₵ {advert.price}</p>
+              <p className="text-2xl font-bold text-gray-800">
+                GH₵ {product.price}
+              </p>
             </div>
 
             <div className="bg-white shadow rounded-lg p-6">
-              <h4 className="text-lg font-semibold mb-4">📇 Vendor Information</h4>
-              <p className="text-gray-700"><strong>Name:</strong> {advert.vendor.name}</p>
-              <p className="flex items-center gap-2 text-gray-600 mt-2"><MapPin size={16} /> {advert.vendor.location}</p>
-              <p className="flex items-center gap-2 text-gray-600 mt-2 break-all"><Mail size={16} /> {advert.vendor.email}</p>
-              <p className="flex items-center gap-2 text-gray-600 mt-2"><Phone size={16} /> {advert.vendor.phone}</p>
+              <h4 className="text-lg font-semibold mb-4">
+                📇 Vendor Information
+              </h4>
+              <p className="text-gray-700">
+                <strong>Name:</strong> {product.vendor.name}
+              </p>
+              <p className="flex items-center gap-2 text-gray-600 mt-2">
+                <MapPin size={16} /> {product.vendor.location}
+              </p>
+              <p className="flex items-center gap-2 text-gray-600 mt-2 break-all">
+                <Mail size={16} /> {product.vendor.email}
+              </p>
+              <p className="flex items-center gap-2 text-gray-600 mt-2">
+                <Phone size={16} /> {product.vendor.phone}
+              </p>
             </div>
 
             <div className="bg-white shadow rounded-lg p-6">
