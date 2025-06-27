@@ -6,17 +6,16 @@ import { apiClient } from "../api/client";
 import { ArrowLeft} from "lucide-react"
 import { User } from "lucide-react"
 import { Link } from "react-router";
+import { toast } from "sonner";
 
 
 export default function EditForm() {
      const { id } = useParams();
     const [university, setUniversity] = useState('');
     const [customUniversity, setCustomUniversity] = useState('');
+    const navigate = useNavigate();
 
      console.log("Editing ad with ID:", id)
-
-
-    
 
     const [advert, setAdvert] = useState({})
     const getAdvert = () => {
@@ -27,6 +26,7 @@ export default function EditForm() {
             })
         .catch ((error) => {
             console.log(error);
+            toast.error('Failed to load advert data');
         })
 
     }
@@ -50,6 +50,47 @@ export default function EditForm() {
 
     }
 
+    // Handle delete advert
+    const handleDelete = async () => {
+        // Show confirmation dialog
+        const confirmed = window.confirm('Are you sure you want to delete this advert? This action cannot be undone.');
+        
+        if (!confirmed) return;
+
+        try {
+            // Get the token from localStorage or wherever you store it
+            const token = localStorage.getItem('authToken'); // Adjust based on your auth implementation
+            
+            const response = await apiClient.delete(`/api/v1/adverts/${id}`, {
+                headers: {
+                    "Authorization": `Bearer ${token}` // Add authorization header
+                },
+            });
+            
+            console.log(response);
+            toast.success('Advert deleted successfully!');
+            
+            // Navigate back to dashboard after successful deletion
+            setTimeout(() => {
+                navigate('/vendor-dashboard');
+            }, 1500);
+            
+        } catch (error) {
+            console.log(error);
+            
+            // Handle different error types
+            if (error.response?.status === 403) {
+                toast.error('You are not authorized to delete this advert');
+            } else if (error.response?.status === 404) {
+                toast.error('Advert not found');
+            } else if (error.response?.status === 401) {
+                toast.error('Please log in to delete this advert');
+            } else {
+                toast.error('Failed to delete advert. Please try again.');
+            }
+        }
+    };
+
         
    
 
@@ -58,7 +99,7 @@ export default function EditForm() {
         <>
 
          <nav className="flex justify-between py-3 px-6 bg-white shadow-xl">
-                <Link to="/">
+                <Link to="/user-page">
                 <div className="flex items-center gap-2 ml-4 sm:ml-6 md:ml-10  ">
                     <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white bg-gradient-to-r
                   from-purple-600 to blue-600 rounded cursor-pointer" />
@@ -97,7 +138,8 @@ export default function EditForm() {
                             <div>
                                 <label htmlFor="Product Title">Product Title<span className="text-red-700">*</span></label>
                                 <input type="text" name="title" id="text" placeholder="Enter your product title"
-                                    className="border border-gray-400 rounded-md w-[95%] h-9 mt-2" required />
+                                    className="border border-gray-400 rounded-md w-[95%] h-9 mt-2" required 
+                                    defaultValue={advert.title} />
                             </div>
                             <div className="mt-4 flex flex-row">
                                 <div className="flex-1/2">
@@ -133,7 +175,8 @@ export default function EditForm() {
                                 <div><label htmlFor="University/Tertiary Institution" >University/Tertiary Institution<span className="text-red-700">*</span></label>
                                     <select name="university/tertiaryinstituton" id="university/tertiayinstitution" className="border border-gray-400 rounded-md w-[95%] h-9 mt-2" required
                                         value={university}
-                                        onChange={(e) => setUniversity(e.target.value)}>
+                                        onChange={(e) => setUniversity(e.target.value)}
+                                        defaultValue={advert.university}>
                                         <option selected disabled>Select a Category
                                         </option>
                                         <option value="university of ghana,legon">University of Ghana, Legon</option>
@@ -158,8 +201,27 @@ export default function EditForm() {
                                 </div>
 
                                 <div class=" flex w-full h-[80px] max-w-md items-center justify-center mt-4  mx-auto  gap-4 text-base font-medium">
-                                   
-                                    <button class="flex-1 bg-gradient-to-r from-purple-600 to-blue-600   font-medium rounded-md p-4 text-white">Update Ad</button>
+                                    <button 
+                                        type="button"
+                                        onClick={handleDelete}
+                                        className="flex-1 bg-gradient-to-r from-red-500 to-red-600 font-medium rounded-md p-3 text-white hover:from-red-600 hover:to-red-700 transition-colors"
+                                    ><Link to="/user-page">
+                                    Delete Ad
+                                    
+                                    </Link>
+                                        
+                                    </button>
+                                    
+                                    
+                                    <button class="flex-1 bg-gradient-to-r from-purple-600 to-blue-600   font-medium rounded-md p-3 text-white">
+                                        <Link to="/user-page">
+                                        
+                                        Update Ad
+                                    
+                                        </Link>
+                                        
+                                    </button>
+                                    
                                 </div>
 
                             </div>
