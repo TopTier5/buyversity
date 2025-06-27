@@ -11,7 +11,7 @@ export default function ProductDetail() {
   const navigate = useNavigate();
   const advertId = searchParams.get("id");
 
-  // Redirect if no ID provided
+  
   useEffect(() => {
     if (!advertId) {
       toast.error("Invalid product", {
@@ -45,7 +45,7 @@ export default function ProductDetail() {
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Handle image processing
+  
   const getImageUrl = (imagePath) => {
     if (!imagePath) return null;
     if (imagePath.startsWith('http')) return imagePath;
@@ -55,7 +55,7 @@ export default function ProductDetail() {
   const getProductImages = () => {
     if (!data) return [];
     
-    // Handle different possible image field structures
+    
     if (data.images && Array.isArray(data.images)) {
       return data.images.map(img => getImageUrl(img)).filter(Boolean);
     }
@@ -99,7 +99,7 @@ export default function ProductDetail() {
     }
   };
 
-  // Format price
+ 
   const formatPrice = (price) => {
     if (!price) return "0.00";
     const cleanPrice = String(price).replace(/[^\d.-]/g, '');
@@ -162,7 +162,7 @@ export default function ProductDetail() {
       <UserNavbar />
       <section className="bg-purple-200 min-h-screen">
         <div className="max-w-7xl mx-auto px-4 py-10 flex flex-col md:flex-row gap-10">
-          {/* Product Images */}
+          
           <div className="flex-1">
             <div className="relative">
               {images.length > 0 ? (
@@ -193,7 +193,7 @@ export default function ProductDetail() {
                     </>
                   )}
                   
-                  {/* Image indicators */}
+                  
                   {images.length > 1 && (
                     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
                       {images.map((_, index) => (
@@ -215,7 +215,7 @@ export default function ProductDetail() {
               )}
             </div>
 
-            {/* Product Details */}
+           
             <div className="mt-6 bg-white shadow rounded-lg p-6">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-bold text-gray-800">
@@ -243,16 +243,15 @@ export default function ProductDetail() {
             </div>
           </div>
 
-          {/* Sidebar */}
+         
           <div className="w-full md:w-80 space-y-6">
-            {/* Price */}
+         
             <div className="bg-white shadow rounded-lg p-6">
               <p className="text-2xl font-bold text-gray-800">
                 GH₵ {formatPrice(product.price)}
               </p>
             </div>
 
-            {/* Vendor Information */}
             <div className="bg-white shadow rounded-lg p-6">
               <h4 className="text-lg font-semibold mb-4">
                 📇 Vendor Information
@@ -281,7 +280,7 @@ export default function ProductDetail() {
               )}
             </div>
 
-            {/* Safety Tips */}
+          
             <div className="bg-white shadow rounded-lg p-6">
               <h4 className="text-lg font-semibold mb-4">Safety Tips</h4>
               <ul className="list-disc list-inside text-gray-600 text-sm space-y-1">

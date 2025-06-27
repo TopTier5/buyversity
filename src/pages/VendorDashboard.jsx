@@ -1,17 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  ArrowLeft,
-  Trash,
-  User,
-  EditIcon,
-  TrashIcon,
-  LocationEdit,
-  Mail,
-  Phone,
-} from "lucide-react";
-import vintage from "../assets/images/vintage.jpg";
-import iphonexr from "../assets/images/iphonexr.jpg";
-import jeansjacket from "../assets/images/jeansjacket.jpg";
+import {ArrowLeft, Trash, User, EditIcon, TrashIcon, LocationEdit, Mail, Phone,} from "lucide-react";
 import VendorNav from "../components/VendorNav";
 import { Link } from "react-router";
 
@@ -20,7 +8,7 @@ export default function VendorDashboard() {
   const [loading, setLoading] = useState(false);
   const [fetchingProducts, setFetchingProducts] = useState(true);
 
-  // Fetch products from API
+
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -28,19 +16,18 @@ export default function VendorDashboard() {
   const fetchProducts = async () => {
     setFetchingProducts(true);
     try {
-      // Replace with your actual API endpoint to get user's products
+      
       const response = await fetch('/api/products/user', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          // Add authentication header if needed
-          // 'Authorization': `Bearer ${token}`,
+          
         },
       });
 
       if (response.ok) {
         const data = await response.json();
-        setProducts(data.products || data); // Adjust based on your API response structure
+        setProducts(data.products || data); 
       } else {
         console.error('Failed to fetch products');
         alert('Failed to load your advertisements');
@@ -53,9 +40,9 @@ export default function VendorDashboard() {
     }
   };
 
-  // Delete product function
+
   const handleDeleteProduct = async (productId) => {
-    // Confirm before deleting
+    
     if (!window.confirm("Are you sure you want to delete this advertisement?")) {
       return;
     }
@@ -63,24 +50,23 @@ export default function VendorDashboard() {
     setLoading(true);
     
     try {
-      // Replace with your actual API endpoint
+      
       const response = await fetch(`/api/products/${productId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
-          // Add authentication header if needed
-          // 'Authorization': `Bearer ${token}`,
+         
         },
       });
 
       if (response.ok) {
-        // Remove the product from the local state
+      
         setProducts(products.filter(product => (product.id || product._id) !== productId));
         
-        // Optional: Show success message
+     
         alert("Advertisement deleted successfully!");
       } else {
-        // Handle error response
+        
         const errorData = await response.json();
         alert(`Failed to delete advertisement: ${errorData.message || 'Unknown error'}`);
       }
@@ -97,9 +83,9 @@ export default function VendorDashboard() {
       <VendorNav />
 
       <section>
-        {/* TOP SECTION */}
+    
         <div className="flex flex-col md:flex-row ml-6 md:ml-13">
-          {/* Profile Box */}
+          
           <div className="border rounded-md border-purple-300 w-[30%] h-36 mt-10 ml-4">
             <div className="flex flex-col sm:ml-4 ml-2 sm:mt-2 mt-1">
               <div className="flex items-center space-x-3">
@@ -124,7 +110,7 @@ export default function VendorDashboard() {
             </div>
           </div>
 
-          {/* Total Ads Box */}
+          
           <div className="border rounded-md border-purple-300 w-[30%] h-36 mt-10 ml-10">
             <div className="p-8">
               <h1 className="text-4xl">{products.length}</h1>
@@ -133,7 +119,7 @@ export default function VendorDashboard() {
           </div>
         </div>
 
-        {/* PRODUCTS */}
+       
         <div className="w-full min-h-screen flex justify-center">
           <div className="mt-10 border rounded-md border-purple-300 w-[90%]">
             <div className="p-8">
@@ -143,7 +129,7 @@ export default function VendorDashboard() {
               </h2>
             </div>
 
-            {/* Loading state */}
+            
             {fetchingProducts ? (
               <div className="text-center py-8">
                 <p>Loading your advertisements...</p>
@@ -153,15 +139,15 @@ export default function VendorDashboard() {
                 <p className="text-gray-500">No advertisements found. Start by posting your first ad!</p>
               </div>
             ) : (
-              // Render ads from product array
+              
               products.map((product) => (
                 <div
-                  key={product.id || product._id} // Use _id if MongoDB
+                  key={product.id || product._id} 
                   className="relative border rounded-md mt-6 border-purple-300 w-[95%] mx-auto p-4 h-40"
                 >
                   <div className="flex">
                     <img
-                      src={product.image || product.imageUrl || '/placeholder-image.jpg'} // Adjust based on your API field names
+                      src={product.image || product.imageUrl || '/placeholder-image.jpg'} 
                       alt={product.title || product.name}
                       className="w-20 h-20 rounded-md object-cover"
                     />

@@ -8,25 +8,24 @@ export default function ProductCard({ product = {} }) {
     id,
     image,
     imageUrl,
-    images, // In case backend sends array of images
+    images, 
     title,
-    name, // Alternative field name
+    name, 
     price,
     vendor,
-    seller, // Alternative field name
+    seller, 
     condition,
     category,
     date,
-    createdAt, // Alternative date field
+    createdAt, 
     updatedAt,
   } = product;
 
-  // Handle different image field possibilities
   const getImageUrl = () => {
     if (image) {
-      // If image is a full URL, use it directly
+      
       if (image.startsWith('http')) return image;
-      // If it's a relative path, combine with base URL
+      
       return imageBaseURL ? `${imageBaseURL}/${image}` : image;
     }
     if (imageUrl) {
@@ -38,7 +37,7 @@ export default function ProductCard({ product = {} }) {
       if (firstImage.startsWith('http')) return firstImage;
       return imageBaseURL ? `${imageBaseURL}/${firstImage}` : firstImage;
     }
-    return "/placeholder-image.jpg"; // Fallback placeholder
+    return "/placeholder-image.jpg"; 
   };
 
   const thumb = getImageUrl();
@@ -47,7 +46,7 @@ export default function ProductCard({ product = {} }) {
   const productVendor = vendor || seller || "Unknown Seller";
   const productCondition = condition || "Used";
   
-  // Format date
+  
   const formatDate = (dateString) => {
     if (!dateString) return "Unknown";
     try {
@@ -58,16 +57,16 @@ export default function ProductCard({ product = {} }) {
         year: 'numeric'
       });
     } catch (error) {
-      return dateString; // Return original if formatting fails
+      return dateString; 
     }
   };
 
   const productDate = formatDate(date || createdAt || updatedAt);
 
-  // Handle price formatting
+  
   const formatPrice = (price) => {
     if (!price) return "0.00";
-    // Remove any existing currency symbols and spaces
+   
     const cleanPrice = String(price).replace(/[^\d.-]/g, '');
     const numPrice = parseFloat(cleanPrice);
     return isNaN(numPrice) ? "0.00" : numPrice.toFixed(2);
@@ -104,7 +103,7 @@ export default function ProductCard({ product = {} }) {
           alt={productTitle}
           className="w-full h-40 object-cover rounded-md mb-3"
           onError={(e) => {
-            e.target.src = "/placeholder-image.jpg"; // Fallback if image fails to load
+            e.target.src = "/placeholder-image.jpg"; 
           }}
         />
 

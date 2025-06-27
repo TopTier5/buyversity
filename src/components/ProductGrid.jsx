@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import ProductCard from "./ProductCard";
 import { apiFetcher, apiClient } from "../api/client";
 
-// Set up axios interceptor for authorization
+
 apiClient.interceptors.request.use((config) => {
   const token = localStorage.getItem('token') || sessionStorage.getItem('token');
   if (token) {
@@ -40,7 +40,7 @@ export default function ProductGrid({ searchTerm = "" }) {
     }
   });
 
-  // Handle the response data structure
+  
   const products = Array.isArray(data) ? data : [];
 
   if (isLoading)
