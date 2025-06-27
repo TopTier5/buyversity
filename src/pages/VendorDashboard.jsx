@@ -55,16 +55,6 @@ export default function VendorDashboard() {
         }
 
 
-
-
-
-
-
-
-
-
-
-
   return (
     <>
       <VendorNav />
