@@ -44,9 +44,15 @@ export default function Navbar() {
    
     <div className="md:hidden mt-4 w-full">
       <div className="flex flex-col gap-2">
-        <button className="text-purple-700 hover:text-black text-sm text-left">Home</button>
         <button className="text-purple-700 hover:text-black text-sm text-left">
-          About</button>
+          <Link to="/">
+        Home
+        </Link></button>
+        <button className="text-purple-700 hover:text-black text-sm text-left">
+          <Link to="/about">
+        About
+        </Link>
+          </button>
 
         <button className="flex items-center gap-1 border border-purple-300 px-3 py-1 rounded-md text-purple-700 hover:text-black text-sm">
            <Link to="/register">Become A Vendor</Link>

@@ -8,5 +8,3 @@ export const apiFetcher = (url) =>
   apiClient.get(url).then((res) => res.data);
 
 export const imageBaseURL = import.meta.env.VITE_IMAGE_BASE_URL;
-
-

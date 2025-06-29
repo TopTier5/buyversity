@@ -232,7 +232,7 @@ export default function ProductDetail() {
               
               {product.condition && (
                 <p className="text-gray-500 text-sm mb-4">
-                  🏷️ Condition: <span className="font-semibold">{product.condition}</span>
+                  🏷 Condition: <span className="font-semibold">{product.condition}</span>
                 </p>
               )}
               
