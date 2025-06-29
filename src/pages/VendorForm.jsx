@@ -4,6 +4,7 @@ import { apiClient } from "../api/client";
 import { ArrowLeft, User } from "lucide-react";
 import useSWR from "swr";
 import { apiFetcher } from "../api/client";
+import { toast } from "sonner";
 
 export default function VendorForm() {
   const [university, setUniversity] = useState("");
@@ -37,12 +38,14 @@ export default function VendorForm() {
       if (advert?.id || advert?._id) {
         navigate(`/user-page?id=${advert.id || advert._id}`);
       } else {
-        console.warn("Submission successful, but no advert ID returned.");
+        console.log("Submission successful, but no advert ID returned.");
         navigate("/user-page");
       }
     } catch (error) {
-      console.error("Submit error:", error);
+      console.log(error)("Submit error:", error);
+      const errorMessage = error.response.data.message
       alert("There was an error submitting the form. Please try again.");
+      toast.error(errorMessage)
     }
   };
 
@@ -72,7 +75,7 @@ export default function VendorForm() {
       </nav>
 
       <section className="flex flex-col items-center min-h-screen bg-purple-200">
-        <form onSubmit={handleSubmit} className="flex flex-col p-8 w-full max-w-4xl">
+        <form onSubmit={handleSubmit} action={handleSubmit} className="flex flex-col p-8 w-full max-w-4xl">
           <div className="bg-white rounded-md shadow px-6 py-8">
             <h1 className="text-center text-3xl font-bold text-white bg-gradient-to-r from-purple-600 to-blue-600 py-6 rounded-t-md">
               Post New Ad
