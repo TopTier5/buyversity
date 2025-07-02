@@ -13,7 +13,7 @@ export default function VendorForm() {
   const today = new Date().toISOString().split("T")[0];
 
   const { data, isLoading, error } = useSWR("/adverts", apiFetcher);
-;
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -105,7 +105,7 @@ export default function VendorForm() {
                   </option>
                   <option value="Electronics">Electronics</option>
                   <option value="Hostel Essentials">Hostel Essentials</option>
-                  <option value="Clothing and Accessories">Clothing and Accessories</option>
+                  <option value="Clothing & Accessories">Clothing & Accessories</option>
                   <option value="Books">Books</option>
                   <option value="Sports">Sports</option>
                   <option value="Other">Other</option>

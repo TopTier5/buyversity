@@ -84,7 +84,7 @@ export default function ProductDetail() {
       images.length ? (p === 0 ? images.length - 1 : p - 1) : 0
     );
 
-  // Format date
+ 
   const formatDate = (dateString) => {
     if (!dateString) return "Unknown date";
     try {
